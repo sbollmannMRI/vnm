@@ -23,3 +23,9 @@ how to stop:
 docker stop vnm
 docker rm vnm
 ```
+
+architecture
+- vnm: docker container with singularity and all modifications of application menu based on  https://github.com/fcwu/docker-ubuntu-vnc-desktop
+- transparent-singularity: scripts to install neuro-sub-containers, installers are called by application menu entries
+- caid: build scripts for neuro-sub-containers, including testing of containers
+- neuro-docker: provides recipes for containers
