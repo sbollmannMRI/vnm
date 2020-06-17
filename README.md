@@ -24,6 +24,9 @@ docker stop vnm
 docker rm vnm
 ```
 
+project pitch:
+https://docs.google.com/presentation/d/12wGoM9BSEn01i0yvtOq6HF8Q_jvKx8vvzonsY-lbEYA/edit#slide=id.p1
+
 architecture layers
 - vnm: docker container with singularity and all modifications of application menu based on  https://github.com/fcwu/docker-ubuntu-vnc-desktop developed here https://github.com/NeuroDesk/vnm 
 - transparent-singularity: scripts to install neuro-sub-containers, installers are called by application menu entries https://github.com/NeuroDesk/transparent-singularity
