@@ -1,8 +1,13 @@
-FROM dorowu/ubuntu-desktop-lxde-vnc:bionic
+FROM dorowu/ubuntu-desktop-lxde-vnc:bionic AS desktop
 # based on this wonderful work https://github.com/fcwu/docker-ubuntu-vnc-desktop
 
+# =====================================================================================
+# INSTALL SINGULARITY
+# =====================================================================================
+
+# Install binary dependencies
 RUN apt-get update \
-    && apt-get install -y \
+    && apt-get install --no-install-recommends -y \
         build-essential \
         libssl-dev \
         uuid-dev \
@@ -10,7 +15,10 @@ RUN apt-get update \
         pkg-config \
         squashfs-tools \
         cryptsetup \
-    && apt-get -y clean
+    && rm -rf /var/lib/apt/lists/*
+
+# Build Go and Singularity
+FROM desktop as install-singularity
 
 WORKDIR /tmp
 
@@ -29,5 +37,10 @@ RUN curl -SLO "https://github.com/hpcng/singularity/releases/download/v${SINGULA
     && make \
     && make install \
     && rm -rf singularity*
+
+# Install Singularity
+FROM desktop as runner
+
+COPY --from=install-singularity /usr/local /usr/local
 
 WORKDIR /vnm
