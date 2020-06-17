@@ -2,7 +2,7 @@
 
 how to build:
 ```
-docker build -t vnm:stable . 
+docker build -t vnm:latest . 
 ```
 
 how to start local:
