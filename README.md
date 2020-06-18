@@ -7,14 +7,13 @@ docker build -t vnm:stable .
 
 how to start local:
 ```
-docker run --name vnm -p 6080:80 vnm:stable 
+docker run --name vnm -p 6080:80 -v vnm:latest 
 open in browser: http://localhost:6080
 ```
 
 how to start with custom screen resolution for VNC Viewer:
 ```
-docker run --name vnm -e RESOLUTION=1920x980 -p 6080:80 -p 5900:5900 vnm:stable 
-docker run --privileged --name vnm -e RESOLUTION=1920x980 -e USER=neuro -e PASSWORD=neuro -p 6080:80 -p 5900:5900 vnm:stable 
+docker run --name vnm -e RESOLUTION=1920x980 -p 6080:80 -p 5900:5900 -v vnm:latest 
 open in VNC viewer:  http://localhost:5900
 
 ```
