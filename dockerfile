@@ -35,6 +35,17 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         cryptsetup \
         squashfs-tools \
+        lua-bit32 \
+        lua-filesystem \
+        lua-json \
+        lua-lpeg \
+        lua-posix \
+        lua-term \
+        lua5.2 \
+        tcl \
+        tcl-dev \
+        libtcl8.6 \
+        lmod \
     && rm -rf /var/lib/apt/lists/*
 
 # Necessary to pass the args from outside this build (it is defined before the FROM).
