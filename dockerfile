@@ -29,7 +29,7 @@ FROM dorowu/ubuntu-desktop-lxde-vnc:bionic
 
 # Install singularity into the final image.
 COPY --from=builder /usr/local/singularity /usr/local/singularity
-COPY ./module.sh /usr/share/
+COPY ./scripts/* /usr/share/
 
 # Install singularity's and lmod's runtime dependencies.
 RUN apt-get update \
@@ -44,6 +44,7 @@ RUN apt-get update \
         lua-term \
         lua5.2 \
         lmod \
+        git \
     && rm -rf /var/lib/apt/lists/*
 
 # Needed to solve packaging issue inside LUA [see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=891541]
@@ -55,7 +56,8 @@ ARG SINGULARITY_VERSION
 
 ENV PATH="/usr/local/singularity/bin:${PATH}" \
     GO_VERSION=${GO_VERSION} \
-    SINGULARITY_VERSION=${SINGULARITY_VERSION}
+    SINGULARITY_VERSION=${SINGULARITY_VERSION} \
+    MODULEPATH=/opt/vnm
 
 COPY ./menus/panel /home/neuro/.config/lxpanel/LXDE/panels/panel
 
