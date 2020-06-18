@@ -15,6 +15,17 @@
 			</And>
 		</Include>
 
+        <!-- FreeSurfer submenu -->
+        <Menu>
+            <Name>FreeSurfer</Name>
+            <Directory>vnm-freesurfer.directory</Directory>
+            <Include>
+                <And>
+                    <Category>FreeSurfer</Category>
+                </And>
+            </Include>
+        </Menu> <!-- End FreeSurfer -->
+
         <!-- ITK snap submenu -->
         <Menu>
             <Name>ITK snap</Name>
@@ -24,7 +35,7 @@
                     <Category>ITK-snap</Category>
                 </And>
             </Include>
-        </Menu> <!-- End ITK snap Terminal -->
+        </Menu> <!-- End ITK snap -->
 
 	</Menu> <!-- End VNM Neuroimaging -->
 

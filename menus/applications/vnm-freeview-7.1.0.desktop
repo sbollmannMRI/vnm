@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=FreeView 7.1.0
+GenericName=FreeView 7.1.0
+Comment=Start FreeView 7.1.0
+Exec=bash /usr/share/fetch_and_run.sh freesurfer 7.1.0 20200521 freeview
+Icon=/home/neuro/.config/lxpanel/LXDE/icons/vnm.png
+Type=Application
+Categories=FreeSurfer
+Terminal=true
