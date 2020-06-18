@@ -15,18 +15,7 @@
 			</And>
 		</Include>
 
-        <!-- VNM Terminal submenu -->
-        <Menu>
-            <Name>VNM Terminal</Name>
-            <Directory>vnm-terminal.directory</Directory>
-            <Include>
-                <And>
-                    <Category>VNM-Terminal</Category>
-                </And>
-            </Include>
-        </Menu> <!-- End VNM Terminal -->
-
-        <!-- VNM Terminal submenu -->
+        <!-- ITK snap submenu -->
         <Menu>
             <Name>ITK snap</Name>
             <Directory>vnm-itksnap.directory</Directory>
@@ -35,7 +24,7 @@
                     <Category>ITK-snap</Category>
                 </And>
             </Include>
-        </Menu> <!-- End VNM Terminal -->
+        </Menu> <!-- End ITK snap Terminal -->
 
 	</Menu> <!-- End VNM Neuroimaging -->
 
