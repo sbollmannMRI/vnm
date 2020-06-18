@@ -4,7 +4,7 @@
 |--|--|
 | lxde-applications.menu | merges with vnm-applications.menu |
 | vnm-applications.menu | add submenus entries here |
-| submenus/* | add submenus entries here |
+| submenus/* | add submenus config files here |
 | applications/* | add app config files here |
 | icons/* | add icons here |
 
@@ -24,6 +24,7 @@ Add the sub-menu block to vnm-applications.menu. Example submenu block below:
 	    </Include>
     </Menu>
 Sub-menus can be nested within other sub-menus
+
 *For an application to appear in this sub-menu, Add this `<Category>`field to the application's `Categories` entry*
 
 Create a vnm-submenu.directory and add to ./submenus/
