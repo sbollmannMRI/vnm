@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# fetch_and_run.sh [name] [version] [date] {cmd} {args}
+# Example:
+#   fetch_and_run.sh itksnap 3.8.0 20200505 itksnap-wt
+
 # Read arguments
 MOD_NAME=$1
 MOD_VERS=$2
