@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=vnm-LXTerminal
+GenericName=vnm-Terminal
+Comment=Use the VNM command line
+TryExec=/usr/bin/lxterminal
+Exec=/usr/bin/lxterminal
+Icon=/home/neuro/.config/lxpanel/LXDE/icons/vnm.png
+Type=Application
+Categories=VNM-Neuroimaging;VNM-Terminal
+Keywords=console;command line;execute;
