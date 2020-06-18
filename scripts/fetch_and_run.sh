@@ -29,14 +29,15 @@ if [ $? -ne 0 ]; then
     ./run_transparent_singularity.sh --container ${IMG_NAME}.sif
     rm -rf .git* README.md run_transparent_singularity ts_*
 fi
+echo "Module '${MOD_NAME}/${MOD_VERS}' is installed."
 
 # If no additional command -> Exit
 if [ $# -le 3 ]; then
-    echo "Module '${MOD_NAME}/${MOD_VERS}' is installed."
     echo "Use 'module load ${MOD_NAME}/${MOD_VERS}' to activate it."
     exit 0
 fi
 
 # If additional command -> Run it
 module load ${MOD_NAME}/${MOD_VERS}
+echo "Running command '${@:4}'."
 ${@:4}
