@@ -1,0 +1,7 @@
+#!/usr/bin/en xdg-open
+[Desktop Entry]
+Type=Application
+Name=FreeView 6.0.1
+Comment=Start FreeView 6.0.1
+Exec= bash /usr/share/fetch_and_run.sh freesurfer 6.0.1 20200506 freeview
+Terminal=true

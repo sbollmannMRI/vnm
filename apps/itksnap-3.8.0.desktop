@@ -4,4 +4,4 @@ Type=Application
 Name=ITK snap 3.8.0
 Comment=Start ITK snap 3.8.0
 Exec= bash /usr/share/fetch_and_run.sh itksnap 3.8.0 20200505 itksnap
-Terminal=false
+Terminal=true
