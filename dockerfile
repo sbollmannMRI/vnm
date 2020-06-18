@@ -35,15 +35,26 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         cryptsetup \
         squashfs-tools \
+        lua-bit32 \
+        lua-filesystem \
+        lua-json \
+        lua-lpeg \
+        lua-posix \
+        lua-term \
+        lua5.2 \
+        lmod \
     && rm -rf /var/lib/apt/lists/*
+
+# Needed to solve packaging issue inside LUA [see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=891541]
+RUN ln -s /usr/lib/x86_64-linux-gnu/lua/5.2/posix_c.so /usr/lib/x86_64-linux-gnu/lua/5.2/posix.so
 
 # Necessary to pass the args from outside this build (it is defined before the FROM).
 ARG GO_VERSION
 ARG SINGULARITY_VERSION
 
-ENV PATH="/usr/local/singularity/bin:$PATH" \
-    GO_VERSION=$GO_VERSION \
-    SINGULARITY_VERSION=$SINGULARITY_VERSION
+ENV PATH="/usr/local/singularity/bin:${PATH}" \
+    GO_VERSION=${GO_VERSION} \
+    SINGULARITY_VERSION=${SINGULARITY_VERSION}
 
 COPY ./menus/panel /home/neuro/.config/lxpanel/LXDE/panels/panel
 
