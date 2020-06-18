@@ -21,6 +21,9 @@ how to stop:
 ```
 docker stop vnm
 docker rm vnm
+
+# or in windows powershell
+docker stop vnm; docker rm vnm
 ```
 
 project pitch:
