@@ -29,8 +29,9 @@ FROM dorowu/ubuntu-desktop-lxde-vnc:bionic
 
 # Install singularity into the final image.
 COPY --from=builder /usr/local/singularity /usr/local/singularity
+COPY ./module.sh /usr/share/
 
-# Install singularity's runtime dependencies.
+# Install singularity's and lmod's runtime dependencies.
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         cryptsetup \
