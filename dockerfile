@@ -45,4 +45,6 @@ ENV PATH="/usr/local/singularity/bin:$PATH" \
     GO_VERSION=$GO_VERSION \
     SINGULARITY_VERSION=$SINGULARITY_VERSION
 
+COPY ./menus/panel /home/neuro/.config/lxpanel/LXDE/panels/panel
+
 WORKDIR /vnm
