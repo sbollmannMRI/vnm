@@ -25,6 +25,18 @@
                 </And>
             </Include>
         </Menu> <!-- End VNM Terminal -->
+
+        <!-- VNM Terminal submenu -->
+        <Menu>
+            <Name>ITK snap</Name>
+            <Directory>vnm-itksnap.directory</Directory>
+            <Include>
+                <And>
+                    <Category>ITK-snap</Category>
+                </And>
+            </Include>
+        </Menu> <!-- End VNM Terminal -->
+
 	</Menu> <!-- End VNM Neuroimaging -->
 
 </Menu> <!-- End Applications -->
