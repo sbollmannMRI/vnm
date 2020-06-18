@@ -1,4 +1,5 @@
 ## Virtual Neuro Machine
+![VNM Logo](virtualneuromachine_logo.png)
 
 how to build:
 ```
