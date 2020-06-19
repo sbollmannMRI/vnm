@@ -1,6 +1,14 @@
 # Virtual Neuro Machine
 ![VNM Logo](virtualneuromachine_logo_small.png)
 
+
+## Quickstart
+install docker, open a terminal 
+```
+docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -p 6080:80 vnmd/vnm:latest
+open browser and go to: http://localhost:6080
+```
+
 ## how to build:
 ```
 docker build -t vnm:latest .
