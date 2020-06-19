@@ -1,5 +1,6 @@
 ARG GO_VERSION="1.14.4"
 ARG SINGULARITY_VERSION="3.5.3"
+ARG LINUX_USER_NAME="neuro"
 
 # Build Singularity.
 FROM golang:${GO_VERSION}-buster as builder
@@ -51,6 +52,12 @@ RUN apt-get update \
 # Needed to solve packaging issue inside LUA [see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=891541]
 RUN ln -s /usr/lib/x86_64-linux-gnu/lua/5.2/posix_c.so /usr/lib/x86_64-linux-gnu/lua/5.2/posix.so
 
+# setup module system
+ARG LINUX_USER_NAME
+RUN mkdir -p /home/${LINUX_USER_NAME}/
+RUN echo "source /usr/share/module.sh" >> /home/${LINUX_USER_NAME}/.bashrc
+RUN echo "export MODULEPATH=/vnm/modules" >> /home/${LINUX_USER_NAME}/.bashrc
+
 # Necessary to pass the args from outside this build (it is defined before the FROM).
 ARG GO_VERSION
 ARG SINGULARITY_VERSION
@@ -66,16 +73,16 @@ COPY ./scripts/* /usr/share/
 RUN dos2unix /usr/share/*
 
 # Use custom bottom panel configuration
-COPY ./menus/panel /home/neuro/.config/lxpanel/LXDE/panels/panel
-RUN dos2unix /home/neuro/.config/lxpanel/LXDE/panels/panel
+COPY ./menus/panel /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/panels/panel
+RUN dos2unix /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/panels/panel
 
 
 # Application and submenu icons
-RUN mkdir -p /home/neuro/.config/lxpanel/LXDE/icons
-COPY ./menus/icons/* /home/neuro/.config/lxpanel/LXDE/icons/
+RUN mkdir -p /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons
+COPY ./menus/icons/* /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons/
 # Adding the vnm logo for a default icon
-COPY virtualneuromachine_logo_small.png /home/neuro/.config/lxpanel/LXDE/icons/vnm.png
-RUN chmod 644 /home/neuro/.config/lxpanel/LXDE/icons/*
+COPY virtualneuromachine_logo_small.png /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons/vnm.png
+RUN chmod 644 /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons/*
 
 # Main-menu config. Add Menu changes to vnm-applications.menu
 COPY ./menus/lxde-applications.menu /etc/xdg/menus/
