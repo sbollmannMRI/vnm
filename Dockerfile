@@ -52,11 +52,12 @@ RUN apt-get update \
 # Needed to solve packaging issue inside LUA [see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=891541]
 RUN ln -s /usr/lib/x86_64-linux-gnu/lua/5.2/posix_c.so /usr/lib/x86_64-linux-gnu/lua/5.2/posix.so
 
-# setup module system
+# setup module system & singularity
 ARG LINUX_USER_NAME
 RUN mkdir -p /home/${LINUX_USER_NAME}/
-RUN echo "source /usr/share/module.sh" >> /home/${LINUX_USER_NAME}/.bashrc
+RUN echo "if [ -f '/usr/share/module.sh' ]; then source /usr/share/module.sh; fi" >> /home/${LINUX_USER_NAME}/.bashrc
 RUN echo "export MODULEPATH=/vnm/modules" >> /home/${LINUX_USER_NAME}/.bashrc
+RUN echo "export SINGULARITY_BINDPATH=/vnm/" >> /home/${LINUX_USER_NAME}/.bashrc
 
 # Necessary to pass the args from outside this build (it is defined before the FROM).
 ARG GO_VERSION

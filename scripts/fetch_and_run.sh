@@ -33,11 +33,12 @@ if [ $? -ne 0 ]; then
     ./run_transparent_singularity.sh --container ${IMG_NAME}.sif
     rm -rf .git* README.md run_transparent_singularity ts_*
 fi
-echo "Module '${MOD_NAME}/${MOD_VERS}' is installed."
+echo "Module '${MOD_NAME}/${MOD_VERS}' is installed. Use the command 'module load ${MOD_NAME}/${MOD_VERS}' outside of this shell to use it."
 
-# If no additional command -> Exit
+# If no additional command -> Give user a shell in the image
 if [ $# -le 3 ]; then
-    echo "Use 'module load ${MOD_NAME}/${MOD_VERS}' to activate it."
+    source ~/.bashrc
+    singularity shell /vnm/${MOD_NAME}_${MOD_VERS}_${MOD_DATE}/${MOD_NAME}_${MOD_VERS}_${MOD_DATE}.sif
     exit 0
 fi
 

@@ -15,16 +15,39 @@
 			</And>
 		</Include>
 
-        <!-- VNM Terminal submenu -->
+        <!-- FreeSurfer submenu -->
         <Menu>
-            <Name>VNM Terminal</Name>
-            <Directory>vnm-terminal.directory</Directory>
+            <Name>FreeSurfer</Name>
+            <Directory>vnm-freesurfer.directory</Directory>
             <Include>
                 <And>
-                    <Category>VNM-Terminal</Category>
+                    <Category>FreeSurfer</Category>
                 </And>
             </Include>
-        </Menu> <!-- End VNM Terminal -->
+        </Menu> <!-- End FreeSurfer -->
+
+        <!-- ITK snap submenu -->
+        <Menu>
+            <Name>ITK snap</Name>
+            <Directory>vnm-itksnap.directory</Directory>
+            <Include>
+                <And>
+                    <Category>ITK-snap</Category>
+                </And>
+            </Include>
+        </Menu> <!-- End ITK snap -->
+        
+        <!-- convert3d submenu -->
+        <Menu>
+            <Name>convert3d</Name>
+            <Directory>vnm-convert3d.directory</Directory>
+            <Include>
+                <And>
+                    <Category>convert3d</Category>
+                </And>
+            </Include>
+        </Menu> <!-- End convert3d -->
+
 	</Menu> <!-- End VNM Neuroimaging -->
 
 </Menu> <!-- End Applications -->
