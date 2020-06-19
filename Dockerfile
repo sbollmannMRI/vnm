@@ -29,7 +29,7 @@ FROM dorowu/ubuntu-desktop-lxde-vnc:bionic
 
 # Install singularity into the final image.
 COPY --from=builder /usr/local/singularity /usr/local/singularity
-COPY ./scripts/* /usr/share/
+
 
 # Install singularity's and lmod's runtime dependencies.
 RUN apt-get update \
@@ -61,7 +61,9 @@ ENV PATH="/usr/local/singularity/bin:${PATH}" \
     MODULEPATH=/opt/vnm
 
 
-
+# add custom scripts
+COPY ./scripts/* /usr/share/
+RUN dos2unix /usr/share/*
 
 # Use custom bottom panel configuration
 COPY ./menus/panel /home/neuro/.config/lxpanel/LXDE/panels/panel
