@@ -36,6 +36,17 @@
                 </And>
             </Include>
         </Menu> <!-- End ITK snap -->
+        
+        <!-- convert3d submenu -->
+        <Menu>
+            <Name>convert3d</Name>
+            <Directory>vnm-convert3d.directory</Directory>
+            <Include>
+                <And>
+                    <Category>convert3d</Category>
+                </And>
+            </Include>
+        </Menu> <!-- End convert3d -->
 
 	</Menu> <!-- End VNM Neuroimaging -->
 
