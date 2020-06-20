@@ -1,7 +1,9 @@
 # Forcing UNIX LF line endings for text files added to container
-./scripts/*.sh text eol=lf
-./menus/panel text eol=lf
-./menus/lxde-applications.menu text eol=lf
-./menus/vnm-applications.menu text eol=lf
-./menus/submenus/*.directory text eol=lf
-./menus/applications/*.desktop text eol=lf
+# ./scripts/*.sh text eol=lf
+# ./menus/panel text eol=lf
+# ./menus/lxde-applications.menu text eol=lf
+# ./menus/vnm-applications.menu text eol=lf
+# ./menus/submenus/*.directory text eol=lf
+# ./menus/applications/*.desktop text eol=lf
+
+*.sh text eol=lf
