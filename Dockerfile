@@ -45,7 +45,6 @@ RUN apt-get update \
         lua-term \
         lua5.2 \
         lmod \
-        dos2unix \
         git \
     && rm -rf /var/lib/apt/lists/*
 
@@ -71,12 +70,9 @@ ENV PATH="/usr/local/singularity/bin:${PATH}" \
 
 # add custom scripts
 COPY ./scripts/* /usr/share/
-RUN dos2unix /usr/share/*
 
 # Use custom bottom panel configuration
 COPY ./menus/panel /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/panels/panel
-RUN dos2unix /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/panels/panel
-
 
 # Application and submenu icons
 RUN mkdir -p /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons
@@ -87,23 +83,16 @@ RUN chmod 644 /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons/*
 
 # Main-menu config. Add Menu changes to vnm-applications.menu
 COPY ./menus/lxde-applications.menu /etc/xdg/menus/
-RUN dos2unix /etc/xdg/menus/lxde-applications.menu
 COPY ./menus/vnm-applications.menu /etc/xdg/menus/
-RUN dos2unix /etc/xdg/menus/vnm-applications.menu
 
 RUN chmod 644 /etc/xdg/menus/lxde-applications.menu
 
 # Sub-menu configs
 COPY ./menus/submenus/*.directory /usr/share/desktop-directories/
 RUN chmod 644 /usr/share/desktop-directories/*.directory
-RUN dos2unix /usr/share/desktop-directories/*.directory
 
 # Application configs
 COPY ./menus/applications/*.desktop /usr/share/applications/
 RUN chmod 644 /usr/share/applications/*
-RUN dos2unix /usr/share/applications/*
 
 WORKDIR /vnm
-
-# cleanup dos2unix tool
-RUN apt-get --purge remove -y dos2unix && rm -rf /var/lib/apt/lists/*
