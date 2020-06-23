@@ -26,7 +26,9 @@ RUN curl -fsSL "https://github.com/hpcng/singularity/releases/download/v${SINGUL
 
 # Create final image.
 # Based on this wonderful work https://github.com/fcwu/docker-ubuntu-vnc-desktop
-FROM dorowu/ubuntu-desktop-lxde-vnc:bionic
+# FROM dorowu/ubuntu-desktop-lxde-vnc:bionic
+FROM dorowu/ubuntu-desktop-lxde-vnc:focal
+# docker pull dorowu/ubuntu-desktop-lxde-vnc:focal-lxqt
 
 # Install singularity into the final image.
 COPY --from=builder /usr/local/singularity /usr/local/singularity
@@ -47,9 +49,6 @@ RUN apt-get update \
         lmod \
         git \
     && rm -rf /var/lib/apt/lists/*
-
-# Needed to solve packaging issue inside LUA [see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=891541]
-RUN ln -s /usr/lib/x86_64-linux-gnu/lua/5.2/posix_c.so /usr/lib/x86_64-linux-gnu/lua/5.2/posix.so
 
 # setup module system & singularity
 ARG LINUX_USER_NAME
