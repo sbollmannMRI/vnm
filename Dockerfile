@@ -26,9 +26,7 @@ RUN curl -fsSL "https://github.com/hpcng/singularity/releases/download/v${SINGUL
 
 # Create final image.
 # Based on this wonderful work https://github.com/fcwu/docker-ubuntu-vnc-desktop
-# FROM dorowu/ubuntu-desktop-lxde-vnc:bionic
 FROM dorowu/ubuntu-desktop-lxde-vnc:focal
-# docker pull dorowu/ubuntu-desktop-lxde-vnc:focal-lxqt
 
 # Install singularity into the final image.
 COPY --from=builder /usr/local/singularity /usr/local/singularity
