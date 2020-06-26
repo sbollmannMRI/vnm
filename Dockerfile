@@ -54,6 +54,7 @@ RUN mkdir -p /home/${LINUX_USER_NAME}/
 RUN echo "if [ -f '/usr/share/module.sh' ]; then source /usr/share/module.sh; fi" >> /home/${LINUX_USER_NAME}/.bashrc
 RUN echo "export MODULEPATH=/vnm/modules" >> /home/${LINUX_USER_NAME}/.bashrc
 RUN echo "export SINGULARITY_BINDPATH=/vnm/" >> /home/${LINUX_USER_NAME}/.bashrc
+RUN echo "alias ll='ls -la'" >> /home/${LINUX_USER_NAME}/.bashrc
 
 # Necessary to pass the args from outside this build (it is defined before the FROM).
 ARG GO_VERSION
@@ -64,6 +65,17 @@ ENV PATH="/usr/local/singularity/bin:${PATH}" \
     SINGULARITY_VERSION=${SINGULARITY_VERSION} \
     MODULEPATH=/opt/vnm
 
+
+# Install packages to improve usability.
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+        htop \
+        fish \
+        vim \
+    && rm -rf /var/lib/apt/lists/*
+
+# configure tiling of windows SHIFT-ALT-CTR-{Left,right,top,Bottom} and other openbox desktop mods
+COPY ./scripts/rc.xml /etc/xdg/openbox
 
 # add custom scripts
 COPY ./scripts/* /usr/share/

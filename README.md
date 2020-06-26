@@ -74,10 +74,5 @@ docker stop vnm
 docker rm vnm
 ```
 
-
-## architecture layers
-- vnm: docker container with singularity and all modifications of application menu based on  https://github.com/fcwu/docker-ubuntu-vnc-desktop developed here https://github.com/NeuroDesk/vnm
-- neurodesk: bash script to install and manage multiple containers using transparent singularity on any linux system - developed here https://github.com/NeuroDesk/neurodesk
-- transparent-singularity: script to install neuro-sub-containers, installers are called by neurodesk script https://github.com/NeuroDesk/transparent-singularity
-- caid: build scripts for neuro-sub-containers, including testing of containers https://github.com/NeuroDesk/caid
-- neuro-docker: provides recipes for containers build using caid https://github.com/NeuroDesk/neurodocker
+## Desktop modifications
+* window tiling is set to: SHIFT-ALT-CTRL-{left,right,up,down}
