@@ -70,13 +70,13 @@ docker stop vnm; docker rm vnm
 ## Use in Linux
 how to start local:
 ```
-docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -v /path/to/persistent:/vnm -p 6080:80 vnm:latest
+sudo docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -v /path/to/persistent:/vnm -p 6080:80 vnm:latest
 open in browser: http://localhost:6080
 ```
 
 how to start with custom screen resolution for VNC Viewer:
 ```
-docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -v /path/to/persistent:/vnm -e RESOLUTION=1920x980 -p 6080:80 -p 5900:5900 vnm:latest 
+sudo docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -v /path/to/persistent:/vnm -e RESOLUTION=1920x980 -p 6080:80 -p 5900:5900 vnm:latest 
 open in VNC viewer:  http://localhost:5900
 ```
 
