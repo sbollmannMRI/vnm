@@ -3,7 +3,7 @@
 
 
 ## Quickstart
-1. Install Docker from here: https://docs.docker.com/get-docker/ (Mac, Windows, Linux)
+1. Install Docker from here: https://docs.docker.com/get-docker/ (Mac, Windows, Linux; for HPC/supercomputer, please contact orenciv@gmail.com)
 
 2. Open a terminal, and type the folowing command to automatically download vnm and run it: 
 ```
