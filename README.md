@@ -3,10 +3,16 @@
 
 
 ## Quickstart
-install docker, open a terminal 
+1. Install Docker from here: https://docs.docker.com/get-docker/ (Mac, Windows, Linux)
+
+2. Open a terminal, and type the folowing command to automatically download vnm and run it: 
 ```
 docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -p 6080:80 vnmd/vnm:latest
-open browser and go to: http://localhost:6080
+```
+
+3. Open a browser and go to:
+```
+http://localhost:6080
 ```
 
 ## how to build:
