@@ -38,6 +38,8 @@ echo "Module '${MOD_NAME}/${MOD_VERS}' is installed. Use the command 'module loa
 # If no additional command -> Give user a shell in the image
 if [ $# -le 3 ]; then
     source ~/.bashrc
+    clear
+    echo "you are now inside the container ${MOD_NAME}_${MOD_VERS}_${MOD_DATE}"
     singularity shell /vnm/${MOD_NAME}_${MOD_VERS}_${MOD_DATE}/${MOD_NAME}_${MOD_VERS}_${MOD_DATE}.sif
     exit 0
 fi
