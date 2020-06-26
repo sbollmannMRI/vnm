@@ -48,12 +48,19 @@ RUN apt-get update \
         git \
     && rm -rf /var/lib/apt/lists/*
 
+
+# Add Visual Studio code
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+RUN echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vs-code.list
+
 # Install packages to improve usability.
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         htop \
         fish \
         vim \
+        code \
     && rm -rf /var/lib/apt/lists/*
 
 # setup module system & singularity
