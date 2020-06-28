@@ -7,9 +7,9 @@ A compact Docker container with a browser-accessible environment for reproducibl
 ## Quickstart
 1. Install Docker from here: https://docs.docker.com/get-docker/ (Mac, Windows, Linux; for HPC/supercomputer, please contact orenciv@gmail.com)
 
-2. Open a terminal, and type the folowing command to automatically download vnm and run it:
+2. Create a local folder where the downloaded software packages will be stored, e.g. ~/vnm in Mac and Linux, or C:\vnm in Windows 
 
-Create a local folder that saves your downloaded applications, e.g. vnm in your home directory or in Windows on C:\
+3. Open a terminal, and type the folowing command to automatically download the vnm container and run it:
 
 Mac:
 ```
@@ -24,17 +24,17 @@ Linux:
 sudo docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -v ~/vnm:/vnm -p 6080:80 vnmd/vnm:latest
 ```
 
-3. Open a browser and go to:
+4. Open a browser and go to:
 ```
 http://localhost:6080
 ```
 
-4. how to stop container:
+5. Stop the vnm container by typing:
 ```
 docker stop vnm
 ```
 
-5. how to delete container:
+6. Delete the vnm container by typing:
 ```
 docker rm vnm
 ```
