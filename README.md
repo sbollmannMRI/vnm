@@ -1,6 +1,7 @@
 # Virtual Neuro Machine
 ![VNM Logo](virtualneuromachine_logo_small.png)
 
+A compact Docker container with a browser-accessible environment for reproducible neuroimaging analysis. Only the required software packages are downloaded from a public library (as Singularity containers). Please complete the form to help guiding future additions to the software library: https://forms.gle/deKy85yniJLP4hDM8
 
 ## Quickstart
 1. Install Docker from here: https://docs.docker.com/get-docker/ (Mac, Windows, Linux; for HPC/supercomputer, please contact orenciv@gmail.com)
