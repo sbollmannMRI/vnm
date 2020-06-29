@@ -23,6 +23,7 @@ def add_menu(name: Text, icon: Text) -> None:
     print(f"Adding submenu for '{name}'")
     # Generate `.directory` file
     entry = configparser.ConfigParser()
+    entry.optionxform = str
     entry["Desktop Entry"] = {
         "Name": name.capitalize(),
         "Comment": name.capitalize(),
@@ -87,6 +88,7 @@ def add_app(
         If set to ``True``, a terminal is opened when launching the application.
     """
     entry = configparser.ConfigParser()
+    entry.optionxform = str
     entry["Desktop Entry"] = {
         "Name": name.capitalize(),
         "GenericName": name.capitalize(),
