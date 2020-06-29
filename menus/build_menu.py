@@ -35,16 +35,16 @@ def add_menu(name: Text, icon: Text) -> None:
     menu_path = Path("/etc/xdg/menus/vnm-applications.menu")
     tree = et.ElementTree(file=str(menu_path))
     root = tree.getroot()
-    menu = root.findall("./Menu")[0]
-    sub = et.SubElement(menu, "Menu")
-    name = et.SubElement(sub, "Name")
-    name.text = name.capitalize()
-    dir = et.SubElement(sub, "Directory")
-    dir.text = directory_name
-    include = et.SubElement(sub, "Include")
-    a = et.SubElement(include, "And")
-    cat = et.SubElement(a, "Category")
-    cat.text = name.replace(" ", "-")
+    menu_el = root.findall("./Menu")[0]
+    sub_el = et.SubElement(menu_el, "Menu")
+    name_el = et.SubElement(sub_el, "Name")
+    name_el.text = name.capitalize()
+    dir_el = et.SubElement(sub_el, "Directory")
+    dir_el.text = directory_name
+    include_el = et.SubElement(sub_el, "Include")
+    and_el = et.SubElement(include_el, "And")
+    cat_el = et.SubElement(and_el, "Category")
+    cat_el.text = name.replace(" ", "-")
     tree.write(str(menu_path))
     os.chmod(menu_path, 0o644)
 
@@ -106,6 +106,6 @@ if __name__ == "__main__":
     for menu_name, menu_data in menu_entries.items():
         # Add submenu
         add_menu(menu_name, menu_data["icon"])
-        for app_name, app_data in menu_data.get("apps", {}):
+        for app_name, app_data in menu_data.get("apps", {}).items():
             # Add application
             add_app(app_name, category=menu_name.replace(" ", "-"), **app_data)
