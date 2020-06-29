@@ -1,6 +1,7 @@
 """Generate the menu items."""
 import configparser
 import json
+import os
 from pathlib import Path
 from typing import Text
 import xml.etree.ElementTree as et
@@ -44,7 +45,8 @@ def add_menu(name: Text, icon: Text) -> None:
     a = et.SubElement(include, "And")
     cat = et.SubElement(a, "Category")
     cat.text = name.replace(" ", "-")
-    tree.write("/etc/xdg/menus/vnm-applications.menu")
+    tree.write(str(menu_path))
+    os.chmod(menu_path, 0o644)
 
 
 def add_app(
@@ -88,10 +90,12 @@ def add_app(
         "Terminal": str(terminal).lower(),
     }
     applications_path = "/usr/share/applications"
-    with open(
-        Path(f"{applications_path}/vnm-{name.lower().replace(' ', '-')}.desktop"), "w",
-    ) as desktop_file:
+    desktop_path = Path(
+        f"{applications_path}/vnm-{name.lower().replace(' ', '-')}.desktop"
+    )
+    with open(desktop_path, "w",) as desktop_file:
         entry.write(desktop_file)
+    os.chmod(desktop_path, 0o644)
 
 
 if __name__ == "__main__":
