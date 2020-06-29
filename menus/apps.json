@@ -29,5 +29,17 @@
                 "terminal": true
             }
         }
+    },
+    "Convert3D": {
+        "icon": "/home/neuro/.config/lxpanel/LXDE/icons/vnm.png",
+        "apps": {
+            "Convert3D 1.0.0": {
+                "version": "1.0.0",
+                "icon": "/home/neuro/.config/lxpanel/LXDE/icons/vnm.png",
+                "exec": "bash /usr/share/fetch_and_run.sh convert3d 1.0.0 20200420",
+                "comment": "Install Convert3D 1.0.0",
+                "terminal": true
+            }
+        }
     }
 }
