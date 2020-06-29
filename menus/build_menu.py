@@ -1,3 +1,4 @@
+"""Generate the menu items."""
 import configparser
 import json
 from pathlib import Path
@@ -6,6 +7,16 @@ import xml.etree.ElementTree as et
 
 
 def add_menu(name: Text, icon: Text) -> None:
+    """Add a submenu to 'VNM' menu.
+
+    Parameters
+    ----------
+    name : Text
+        The name of the submenu.
+    icon : Text
+        The path to the submenu icon inside the image (Starting with
+        ``'/home/neuro/.config/lxpanel/LXDE/icons/'`` for Xfce).
+    """
     print(f"Adding submenu for '{name}'")
     # Generate `.directory` file
     entry = configparser.ConfigParser()
@@ -45,6 +56,26 @@ def add_app(
     category: Text,
     terminal: bool = True,
 ) -> None:
+    """Add an application to the menu.
+
+    Parameters
+    ----------
+    name : Text
+        The name of the application.
+    version : Text
+        The version of the applciation.
+    icon : Text
+        The path to the icon of the application (Starting with
+        ``'/home/neuro/.config/lxpanel/LXDE/icons/'`` for Xfce).
+    exec : Text
+        The command to run when clicking on the application item.
+    comment : Text
+        The tooltip to show when hovering the item.
+    category : Text
+        The category defining the menu in which the application must be added.
+    terminal : bool
+        If set to ``True``, a terminal is opened when launching the application.
+    """
     entry = configparser.ConfigParser()
     entry["Desktop Entry"] = {
         "Name": name.capitalize(),
