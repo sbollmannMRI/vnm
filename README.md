@@ -9,7 +9,7 @@ A compact Docker container with a browser-accessible environment for reproducibl
 
 2. Create a local folder where the downloaded software packages will be stored, e.g. ~/vnm in Mac and Linux, or C:\vnm in Windows 
 
-3. Open a terminal, and type the folowing command to automatically download the vnm container and run it:
+3. Open a terminal, and type the folowing command to automatically download the vnm container and run it (Mac, Windows, Linux commands listed below) 
 
 Mac:
 ```
@@ -24,7 +24,7 @@ Linux:
 sudo docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -v ~/vnm:/vnm -p 6080:80 vnmd/vnm:latest
 ```
 
-4. Open a browser and go to:
+4. Once VNM is downloaded i.e. "Listening on http://localhost:6079 (run.py:87)" is displayed in terminal, open Open a browser and go to:
 ```
 http://localhost:6080
 ```
