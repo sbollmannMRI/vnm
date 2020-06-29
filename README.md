@@ -11,15 +11,15 @@ A compact Docker container with a browser-accessible environment for reproducibl
 
 3. Open a terminal, and type the folowing command to automatically download the vnm container and run it (Mac, Windows, Linux commands listed below) 
 
-Mac:
+* Mac:
 ```
 docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -v ~/vnm:/vnm -p 6080:80 vnmd/vnm:latest
 ```
-Windows:
+* Windows:
 ```
 docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -v C:/vnm:/vnm -p 6080:80 vnmd/vnm:latest
 ```
-Linux:
+* Linux:
 ```
 sudo docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -v ~/vnm:/vnm -p 6080:80 vnmd/vnm:latest
 ```
