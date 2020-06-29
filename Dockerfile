@@ -107,12 +107,9 @@ COPY ./menus/vnm-applications.menu /etc/xdg/menus/
 
 RUN chmod 644 /etc/xdg/menus/lxde-applications.menu
 
-# Sub-menu configs
-COPY ./menus/submenus/*.directory /usr/share/desktop-directories/
-RUN chmod 644 /usr/share/desktop-directories/*.directory
-
-# Application configs
-COPY ./menus/applications/*.desktop /usr/share/applications/
-RUN chmod 644 /usr/share/applications/*
+# Build the menu
+WORKDIR /tmp
+COPY ./menus/buid_menu.py ./menus/apps.json /tmp/
+RUN python3 build_menu.py
 
 WORKDIR /vnm
