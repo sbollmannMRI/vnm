@@ -54,14 +54,22 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > mic
 RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 RUN echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vs-code.list
 
-# Install packages to improve usability.
+# Install packages: code, vim, git-annex
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         htop \
         fish \
         vim \
         code \
+        git-annex \
+        python3-pip \
     && rm -rf /var/lib/apt/lists/*
+
+# cleanup vs-code.list file to avoid apt error:
+RUN rm /etc/apt/sources.list.d/vs-code.list
+
+# install datalad
+RUN pip3 install datalad datalad_container
 
 # setup module system & singularity
 ARG LINUX_USER_NAME
