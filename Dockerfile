@@ -109,7 +109,7 @@ RUN chmod 644 /etc/xdg/menus/lxde-applications.menu
 
 # Build the menu
 WORKDIR /tmp
-COPY ./menus/buid_menu.py ./menus/apps.json /tmp/
+COPY ./menus/build_menu.py ./menus/apps.json /tmp/
 RUN python3 build_menu.py
 
 WORKDIR /vnm
