@@ -3,8 +3,10 @@ import configparser
 import json
 import os
 from pathlib import Path
+import re
 from typing import Text
 import xml.etree.ElementTree as et
+from xml.dom import minidom
 
 
 def add_menu(name: Text, icon: Text) -> None:
@@ -33,8 +35,10 @@ def add_menu(name: Text, icon: Text) -> None:
         entry.write(directory_file)
     # Add entry to `.menu` file
     menu_path = Path("/etc/xdg/menus/vnm-applications.menu")
-    tree = et.ElementTree(file=str(menu_path))
-    root = tree.getroot()
+    with open(menu_path, "r") as xml_file:
+        s = xml_file.read()
+    s = re.sub(r"\s+(?=<)", "", s)
+    root = et.fromstring(s)
     menu_el = root.findall("./Menu")[0]
     sub_el = et.SubElement(menu_el, "Menu")
     name_el = et.SubElement(sub_el, "Name")
@@ -45,7 +49,11 @@ def add_menu(name: Text, icon: Text) -> None:
     and_el = et.SubElement(include_el, "And")
     cat_el = et.SubElement(and_el, "Category")
     cat_el.text = name.replace(" ", "-")
-    tree.write(str(menu_path))
+    xmlstr = minidom.parseString(et.tostring(root)).toprettyxml(indent="\t")
+    with open(menu_path, "w") as f:
+        f.write('<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"\n ')
+        f.write('"http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">\n\n')
+        f.write(xmlstr[xmlstr.find("?>") + 3 :])
     os.chmod(menu_path, 0o644)
 
 
