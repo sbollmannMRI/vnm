@@ -32,7 +32,7 @@ def add_menu(name: Text, icon: Text) -> None:
     directories_path = "/usr/share/desktop-directories"
     directory_name = f"vnm-{name.lower().replace(' ', '-')}.directory"
     with open(Path(f"{directories_path}/{directory_name}"), "w",) as directory_file:
-        entry.write(directory_file)
+        entry.write(directory_file, space_around_delimiters=False)
     # Add entry to `.menu` file
     menu_path = Path("/etc/xdg/menus/vnm-applications.menu")
     with open(menu_path, "r") as xml_file:
@@ -102,7 +102,7 @@ def add_app(
         f"{applications_path}/vnm-{name.lower().replace(' ', '-')}.desktop"
     )
     with open(desktop_path, "w",) as desktop_file:
-        entry.write(desktop_file)
+        entry.write(desktop_file, space_around_delimiters=False)
     os.chmod(desktop_path, 0o644)
 
 
