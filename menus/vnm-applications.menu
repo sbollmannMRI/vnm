@@ -15,39 +15,6 @@
 			</And>
 		</Include>
 
-        <!-- FreeSurfer submenu -->
-        <Menu>
-            <Name>FreeSurfer</Name>
-            <Directory>vnm-freesurfer.directory</Directory>
-            <Include>
-                <And>
-                    <Category>FreeSurfer</Category>
-                </And>
-            </Include>
-        </Menu> <!-- End FreeSurfer -->
-
-        <!-- ITK snap submenu -->
-        <Menu>
-            <Name>ITK snap</Name>
-            <Directory>vnm-itksnap.directory</Directory>
-            <Include>
-                <And>
-                    <Category>ITK-snap</Category>
-                </And>
-            </Include>
-        </Menu> <!-- End ITK snap -->
-        
-        <!-- convert3d submenu -->
-        <Menu>
-            <Name>convert3d</Name>
-            <Directory>vnm-convert3d.directory</Directory>
-            <Include>
-                <And>
-                    <Category>convert3d</Category>
-                </And>
-            </Include>
-        </Menu> <!-- End convert3d -->
-
 	</Menu> <!-- End VNM Neuroimaging -->
 
 </Menu> <!-- End Applications -->
