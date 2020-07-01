@@ -1,3 +1,5 @@
+
+
 docker build -t vnm:latest . && (
     ECHO "Starting VNM:"
     docker images
