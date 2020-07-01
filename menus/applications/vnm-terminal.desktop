@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=VNM terminal
-GenericName=VNM terminal
-Comment=Start a terminal with module manager sourced.
-Exec=/usr/bin/lxterminal --command="/bin/bash -c 'source /usr/share/module.sh; module use /vnm/modules; /bin/bash'"
-Icon=/home/neuro/.config/lxpanel/LXDE/icons/vnm.png
-Type=Application
-Categories=VNM-Neuroimaging
-Terminal=false

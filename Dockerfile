@@ -97,8 +97,6 @@ COPY ./menus/panel /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/panels/panel
 # Application and submenu icons
 RUN mkdir -p /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons
 COPY ./menus/icons/* /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons/
-# Adding the vnm logo for a default icon
-COPY virtualneuromachine_logo_small.png /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons/vnm.png
 RUN chmod 644 /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons/*
 
 # Main-menu config. Add Menu changes to vnm-applications.menu
@@ -107,12 +105,11 @@ COPY ./menus/vnm-applications.menu /etc/xdg/menus/
 
 RUN chmod 644 /etc/xdg/menus/lxde-applications.menu
 
-# Sub-menu configs
-COPY ./menus/submenus/*.directory /usr/share/desktop-directories/
-RUN chmod 644 /usr/share/desktop-directories/*.directory
+COPY ./menus/vnm-neuroimaging.directory /usr/share/desktop-directories/
 
-# Application configs
-COPY ./menus/applications/*.desktop /usr/share/applications/
-RUN chmod 644 /usr/share/applications/*
+# Build the menu
+WORKDIR /tmp
+COPY ./menus/build_menu.py ./menus/apps.json /tmp/
+RUN python3 build_menu.py
 
 WORKDIR /vnm

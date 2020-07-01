@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=FreeSurfer 7.1.0 (Install only)
-GenericName=FreeSurfer 7.1.0
-Comment=Install FreeSurfer 7.1.0
-Exec=bash /usr/share/fetch_and_run.sh freesurfer 7.1.0 20200521
-Icon=/home/neuro/.config/lxpanel/LXDE/icons/vnm.png
-Type=Application
-Categories=FreeSurfer
-Terminal=true
