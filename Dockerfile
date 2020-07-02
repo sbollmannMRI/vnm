@@ -74,7 +74,7 @@ RUN pip3 install datalad datalad_container
 # setup module system & singularity
 ARG LINUX_USER_NAME
 RUN mkdir -p /home/${LINUX_USER_NAME}/
-COPY ./scripts/.bashrc /home/${LINUX_USER_NAME}/.bashrc
+COPY ./config/.bashrc /home/${LINUX_USER_NAME}/.bashrc
 
 # Necessary to pass the args from outside this build (it is defined before the FROM).
 ARG GO_VERSION
@@ -86,7 +86,11 @@ ENV PATH="/usr/local/singularity/bin:${PATH}" \
     MODULEPATH=/opt/vnm
 
 # configure tiling of windows SHIFT-ALT-CTR-{Left,right,top,Bottom} and other openbox desktop mods
-COPY ./scripts/rc.xml /etc/xdg/openbox
+COPY ./config/rc.xml /etc/xdg/openbox
+
+# configure ITKsnap
+COPY ./config/.itksnap.org /home/${LINUX_USER_NAME}/.itksnap.org
+COPY ./config/mimeapps.list /home/${LINUX_USER_NAME}/.config/mimeapps.list
 
 # add custom scripts
 COPY ./scripts/* /usr/share/
