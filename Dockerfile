@@ -69,12 +69,25 @@ RUN apt-get update \
 RUN rm /etc/apt/sources.list.d/vs-code.list
 
 # install datalad
-RUN pip3 install datalad datalad_container
+RUN pip3 install datalad datalad_container \
+    && rm -rf /root/.cache/pip \
+    && rm -rf /home/ubuntu/.cache/
 
 # setup module system & singularity
 ARG LINUX_USER_NAME
 RUN mkdir -p /home/${LINUX_USER_NAME}/
 COPY ./config/.bashrc /home/${LINUX_USER_NAME}/.bashrc
+
+
+# Install nipype: 
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+        gcc \
+        python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+RUN pip3 install nipype \
+    && rm -rf /root/.cache/pip \
+    && rm -rf /home/ubuntu/.cache/
 
 # Necessary to pass the args from outside this build (it is defined before the FROM).
 ARG GO_VERSION
@@ -117,3 +130,4 @@ COPY ./menus/build_menu.py ./menus/apps.json /tmp/
 RUN python3 build_menu.py
 
 WORKDIR /vnm
+RUN ln -s /vnm /home/${LINUX_USER_NAME}/Desktop/vnm
