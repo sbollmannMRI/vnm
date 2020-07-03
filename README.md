@@ -46,6 +46,20 @@ add the following parameter to the docker call:
 open in VNC viewer:  http://localhost:5900
 ```
 
+## List of available software in the Desktop
+* Datalad 0.13.0
+* Fish Shell 3.1.0
+* Git 2.25.1
+* Git-Annex 8.20200226
+* Julia 1.4.1
+* Lmod 6.6
+* Nipype 1.5.0
+* Python 3.8.2
+* Singularity 3.5.3
+* Visual Studio Code 1.46.1
+
+## List of available neuroimaging packages:
+[list all available neuroimaging containers](https://github.com/NeuroDesk/caid/blob/master/Containerlist.md) 
 
 ## Desktop modifications
 * window tiling is set to: SHIFT-ALT-CTRL-{left,right,up,down}
