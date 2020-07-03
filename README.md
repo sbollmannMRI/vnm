@@ -24,12 +24,12 @@ docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -v C:/vnm:/vn
 sudo docker run --privileged -e USER=neuro -e PASSWORD=neuro --name vnm -v ~/vnm:/vnm -p 6080:80 vnmd/vnm:latest
 ```
 
-4. Once VNM is downloaded i.e. "Listening on http://localhost:6079 (run.py:87)" is displayed in terminal, open Open a browser and go to:
+4. Once VNM is downloaded i.e. "Listening on http://localhost:6079 (run.py:87)" is displayed in terminal, open a browser and go to:
 ```
 http://localhost:6080
 ```
 
-5. Stop the vnm container by typing:
+5. Stop the vnm container by pressing control-C then typing:
 ```
 docker stop vnm
 ```
