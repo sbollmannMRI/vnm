@@ -141,3 +141,6 @@ RUN python3 build_menu.py
 WORKDIR /vnm
 RUN mkdir -p /home/${LINUX_USER_NAME}/Desktop/
 RUN ln -s /vnm /home/${LINUX_USER_NAME}/Desktop/vnm
+
+# example data
+COPY ./data/ /home/${LINUX_USER_NAME}/
