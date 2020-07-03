@@ -89,6 +89,15 @@ RUN pip3 install nipype \
     && rm -rf /root/.cache/pip \
     && rm -rf /home/ubuntu/.cache/
 
+# Install julia:
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+        libzstd1 \
+        julia \
+        zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+
 # Necessary to pass the args from outside this build (it is defined before the FROM).
 ARG GO_VERSION
 ARG SINGULARITY_VERSION
@@ -130,4 +139,5 @@ COPY ./menus/build_menu.py ./menus/apps.json /tmp/
 RUN python3 build_menu.py
 
 WORKDIR /vnm
+RUN mkdir -p /home/${LINUX_USER_NAME}/Desktop/
 RUN ln -s /vnm /home/${LINUX_USER_NAME}/Desktop/vnm
