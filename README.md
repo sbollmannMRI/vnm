@@ -47,16 +47,18 @@ open in VNC viewer:  http://localhost:5900
 ```
 
 ## List of available software in the Desktop
-* Datalad 0.13.0
-* Fish Shell 3.1.0
-* Git 2.25.1
-* Git-Annex 8.20200226
-* Julia 1.4.1
-* Lmod 6.6
-* Nipype 1.5.0
-* Python 3.8.2
-* Singularity 3.5.3
-* Visual Studio Code 1.46.1
+* Datalad 0.13.0 (great interface for version control of data using git-annex)
+* Fish Shell 3.1.0 (shell with autocomplete)
+* Git 2.25.1 (version control)
+* Git-Annex 8.20200226 (version control of data)
+* Julia 1.4.1 (programming language)
+* Lmod 6.6 (for handling different versions of software)
+* Nipype 1.5.0 (workflow system for neuro-imaging)
+* Python 3.8.2 (programming language)
+* Rclone v1.50.2 (rsync for cloud storage providers)
+* Rsync 3.1.3 (synchronization of data)
+* Singularity 3.5.3 (container runtime)
+* Visual Studio Code 1.46.1 (code editor and development environment)
 
 ## List of available neuroimaging packages:
 [list all available neuroimaging containers](https://github.com/NeuroDesk/caid/blob/master/Containerlist.md) 

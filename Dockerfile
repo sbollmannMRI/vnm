@@ -63,6 +63,8 @@ RUN apt-get update \
         code \
         git-annex \
         python3-pip \
+        rsync \
+        rclone \
     && rm -rf /var/lib/apt/lists/*
 
 # cleanup vs-code.list file to avoid apt error:
