@@ -18,7 +18,7 @@ def add_menu(name: Text, icon: Text) -> None:
         The name of the submenu.
     icon : Text
         The path to the submenu icon inside the image (Starting with
-        ``'/home/neuro/.config/lxpanel/LXDE/icons/'`` for Xfce).
+        ``'/root/.config/lxpanel/LXDE/icons/'`` for Xfce).
     """
     print(f"Adding submenu for '{name}'")
     # Generate `.directory` file
@@ -77,7 +77,7 @@ def add_app(
         The version of the applciation.
     icon : Text
         The path to the icon of the application (Starting with
-        ``'/home/neuro/.config/lxpanel/LXDE/icons/'`` for Xfce).
+        ``'/root/.config/lxpanel/LXDE/icons/'`` for Xfce).
     exec : Text
         The command to run when clicking on the application item.
     comment : Text
