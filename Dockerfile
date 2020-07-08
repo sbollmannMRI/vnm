@@ -1,6 +1,5 @@
 ARG GO_VERSION="1.14.4"
 ARG SINGULARITY_VERSION="3.5.3"
-ARG LINUX_USER_NAME="neuro"
 
 # Build Singularity.
 FROM golang:${GO_VERSION}-buster as builder
@@ -76,9 +75,7 @@ RUN pip3 install datalad datalad_container \
     && rm -rf /home/ubuntu/.cache/
 
 # setup module system & singularity
-ARG LINUX_USER_NAME
-RUN mkdir -p /home/${LINUX_USER_NAME}/
-COPY ./config/.bashrc /home/${LINUX_USER_NAME}/.bashrc
+COPY ./config/.bashrc /root/.bashrc
 
 
 # Install nipype: 
@@ -113,19 +110,19 @@ ENV PATH="/usr/local/singularity/bin:${PATH}" \
 COPY ./config/rc.xml /etc/xdg/openbox
 
 # configure ITKsnap
-COPY ./config/.itksnap.org /home/${LINUX_USER_NAME}/.itksnap.org
-COPY ./config/mimeapps.list /home/${LINUX_USER_NAME}/.config/mimeapps.list
+COPY ./config/.itksnap.org /root/.itksnap.org
+COPY ./config/mimeapps.list /root/.config/mimeapps.list
 
 # add custom scripts
 COPY ./scripts/* /usr/share/
 
 # Use custom bottom panel configuration
-COPY ./menus/panel /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/panels/panel
+COPY ./menus/panel /root/.config/lxpanel/LXDE/panels/panel
 
 # Application and submenu icons
-RUN mkdir -p /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons
-COPY ./menus/icons/* /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons/
-RUN chmod 644 /home/${LINUX_USER_NAME}/.config/lxpanel/LXDE/icons/*
+RUN mkdir -p /root/.config/lxpanel/LXDE/icons
+COPY ./menus/icons/* /root/.config/lxpanel/LXDE/icons/
+RUN chmod 644 /root/.config/lxpanel/LXDE/icons/*
 
 # Main-menu config. Add Menu changes to vnm-applications.menu
 COPY ./menus/lxde-applications.menu /etc/xdg/menus/
@@ -141,8 +138,8 @@ COPY ./menus/build_menu.py ./menus/apps.json /tmp/
 RUN python3 build_menu.py
 
 WORKDIR /vnm
-RUN mkdir -p /home/${LINUX_USER_NAME}/Desktop/
-RUN ln -s /vnm /home/${LINUX_USER_NAME}/Desktop/vnm
+RUN mkdir -p /root/Desktop/
+RUN ln -s /vnm /root/Desktop/vnm
 
 # example data
-COPY ./data/ /home/${LINUX_USER_NAME}/
+COPY ./data/ /root/
