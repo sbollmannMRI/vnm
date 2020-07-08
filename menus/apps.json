@@ -48,7 +48,7 @@
             "FreeSurfer 7.1.0": {
                 "version": "7.1.0",
                 "icon": "/home/neuro/.config/lxpanel/LXDE/icons/vnm.png",
-                "exec": "bash /usr/share/fetch_and_run.sh freesurfer 7.1.0 20200702",
+                "exec": "bash /usr/share/fetch_and_run.sh freesurfer 7.1.0 20200708",
                 "comment": "Install FreeSurfer 7.1.0",
                 "terminal": true
             }

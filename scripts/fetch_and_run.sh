@@ -40,8 +40,13 @@ if [ $# -le 3 ]; then
     source ~/.bashrc
     clear
     echo "you are now inside the container ${MOD_NAME}_${MOD_VERS}_${MOD_DATE}"
-    singularity shell /vnm/${MOD_NAME}_${MOD_VERS}_${MOD_DATE}/${MOD_NAME}_${MOD_VERS}_${MOD_DATE}.sif
-    exit 0
+    singularity shell /vnm/${MOD_NAME}_${MOD_VERS}_${MOD_DATE}/${MOD_NAME}_${MOD_VERS}_${MOD_DATE}.sif \
+    || echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" \
+    && echo "the container you have has a bug and needs to be updated on your system. To trigger a reinstall, run:" \
+    && echo "rm -rf /vnm/${MOD_NAME}_${MOD_VERS}_*" \
+    && echo "rm -rf /vnm/modules/${MOD_NAME}/${MOD_VERS}" \
+    && read -e -p "Would you like me to do this for you (Y for yes)? " choice \
+    && [[ "$choice" == [Yy]* ]] && rm -rf /vnm/${MOD_NAME}_${MOD_VERS}_* && rm -rf /vnm/modules/${MOD_NAME}/${MOD_VERS}
 fi
 
 # If additional command -> Run it
