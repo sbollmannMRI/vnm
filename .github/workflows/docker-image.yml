@@ -40,7 +40,7 @@ jobs:
         docker push $IMAGEID:$BUILDDATE
         docker push $IMAGEID:latest
     - name: Push to Dockerhub  (if enabled & changes found)
-      if: env.DOCKERHUB_ORG != '' && env.ROOTFS_NEW != env.ROOTFS_CACHE
+      if: env.DOCKERHUB_ORG != ''
       run: |
         # Push to GH Packages
         docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/$IMAGENAME:$BUILDDATE
