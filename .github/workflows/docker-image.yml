@@ -40,8 +40,8 @@ jobs:
         # Push to GH Packages
         docker tag $IMAGEID:$SHORT_SHA $IMAGEID:$BUILDDATE
         docker tag $IMAGEID:$SHORT_SHA $IMAGEID:latest
-        docker push $IMAGEID:$BUILDDATE
         docker push $IMAGEID:latest
+        docker push $IMAGEID:$BUILDDATE
     - name: Push to Dockerhub  (if enabled & changes found)
       if: env.DOCKERHUB_ORG != ''
       run: |
@@ -49,5 +49,5 @@ jobs:
         # Push to GH Packages
         docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/vnm:$BUILDDATE
         docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/vnm:latest
-        docker push $DOCKERHUB_ORG/vnm:$BUILDDATE
         docker push $DOCKERHUB_ORG/vnm:latest
+        docker push $DOCKERHUB_ORG/vnm:$BUILDDATE

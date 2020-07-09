@@ -38,12 +38,12 @@ if [ $# -le 3 ]; then
         echo "attempting to start shell in container ${IMG_NAME}"
         singularity shell ${CONTAINER_FILE_NAME}
     else 
-        echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" \
-        echo "the container you have has a bug and needs to be updated on your system. To trigger a reinstall, run:" \
-        echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" \
-        echo "rm -rf /vnm/${MOD_NAME}_${MOD_VERS}_*" \
-        echo "rm -rf /vnm/modules/${MOD_NAME}/${MOD_VERS}" \
-        read -e -p "Would you like me to do this for you (Y for yes)? " choice \
+        echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+        echo "the container you have has a bug and needs to be updated on your system. To trigger a reinstall, run:"
+        echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+        echo "rm -rf /vnm/${MOD_NAME}_${MOD_VERS}_*" 
+        echo "rm -rf /vnm/modules/${MOD_NAME}/${MOD_VERS}" 
+        read -p "Would you like me to do this for you (Y for yes)? " choice 
         [[ "$choice" == [Yy]* ]] && rm -rf /vnm/${MOD_NAME}_${MOD_VERS}_* && rm -rf /vnm/modules/${MOD_NAME}/${MOD_VERS}
     fi
 
