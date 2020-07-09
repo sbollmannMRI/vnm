@@ -47,7 +47,7 @@ jobs:
       run: |
         echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
         # Push to GH Packages
-        docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/$IMAGENAME:$BUILDDATE
-        docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/$IMAGENAME:latest
-        docker push $DOCKERHUB_ORG/$IMAGENAME:$BUILDDATE
-        docker push $DOCKERHUB_ORG/$IMAGENAME:latest
+        docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/vnm:$BUILDDATE
+        docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/vnm:latest
+        docker push $DOCKERHUB_ORG/vnm:$BUILDDATE
+        docker push $DOCKERHUB_ORG/vnm:latest
