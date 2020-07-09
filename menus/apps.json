@@ -110,7 +110,7 @@
             "mrtrix3 3.0.0": {
                 "version": "3.0.0",
                 "icon": "/root/.config/lxpanel/LXDE/icons/vnm.png",
-                "exec": "bash /usr/share/fetch_and_run.sh mrtrix3 3.0.0 20200702",
+                "exec": "bash /usr/share/fetch_and_run.sh mrtrix3 3.0.0 20200709",
                 "comment": "Start mrtrix3 3.0.0",
                 "terminal": true
             }
