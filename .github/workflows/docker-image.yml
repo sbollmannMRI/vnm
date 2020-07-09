@@ -42,3 +42,9 @@ jobs:
     - name: Push to Dockerhub  (if enabled & changes found)
       run: |
         echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+        DOCKERHUB_ORG=${{ secrets.DOCKERHUB_ORG }}
+        # Push to GH Packages
+        docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/$IMAGENAME:$BUILDDATE
+        docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/$IMAGENAME:latest
+        docker push $DOCKERHUB_ORG/$IMAGENAME:$BUILDDATE
+        docker push $DOCKERHUB_ORG/$IMAGENAME:latest
