@@ -118,28 +118,25 @@ COPY ./config/mimeapps.list /root/.config/mimeapps.list
 COPY ./config/panel /root/.config/lxpanel/LXDE/panels/panel
 
 
-# # Application and submenu icons
-# RUN mkdir -p /root/.config/lxpanel/LXDE/icons
-# COPY ./menus/icons/* /root/.config/lxpanel/LXDE/icons/
-# RUN chmod 644 /root/.config/lxpanel/LXDE/icons/*
+# Application and submenu icons
+WORKDIR /
+RUN git clone https://github.com/NeuroDesk/neurodesk.git /neurodesk
+RUN mkdir -p /root/.config/lxpanel/LXDE/icons
+COPY /neurodesk/menus/icons/* /root/.config/lxpanel/LXDE/icons/
+RUN chmod 644 /root/.config/lxpanel/LXDE/icons/*
 
-# # Main-menu config. Add Menu changes to vnm-applications.menu
-# COPY ./menus/lxde-applications.menu /etc/xdg/menus/
-# COPY ./menus/vnm-applications.menu /etc/xdg/menus/
+# Main-menu config. Add Menu changes to vnm-applications.menu
+COPY /neurodesk/menus/lxde-applications.menu /etc/xdg/menus/
+COPY /neurodesk/menus/vnm-applications.menu /etc/xdg/menus/
 
-# RUN chmod 644 /etc/xdg/menus/lxde-applications.menu
+RUN chmod 644 /etc/xdg/menus/lxde-applications.menu
 
-# COPY ./menus/vnm-neuroimaging.directory /usr/share/desktop-directories/
+COPY /neurodesk/menus/vnm-neuroimaging.directory /usr/share/desktop-directories/
 
-# # Build the menu
-# WORKDIR /tmp
-# COPY ./menus/build_menu.py ./menus/apps.json /tmp/
-# RUN python3 build_menu.py
+# Build the menu
+WORKDIR /neurodesk
+RUN python3 build_menu.py
 
-
-
-
-WORKDIR /vnm
 RUN mkdir -p /root/Desktop/
 RUN ln -s /vnm /root/Desktop/vnm
 
