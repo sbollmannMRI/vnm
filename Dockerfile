@@ -94,6 +94,8 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         libzstd1 \
         julia \
+        libjulia1 \
+        libgfortran5 \
         zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
@@ -122,19 +124,23 @@ COPY ./config/panel /root/.config/lxpanel/LXDE/panels/panel
 WORKDIR /
 RUN git clone https://github.com/NeuroDesk/neurodesk.git /neurodesk
 RUN mkdir -p /root/.config/lxpanel/LXDE/icons
-COPY /neurodesk/menus/icons/* /root/.config/lxpanel/LXDE/icons/
+RUN ln -s /neurodesk/menus/icons/* /root/.config/lxpanel/LXDE/icons/
 RUN chmod 644 /root/.config/lxpanel/LXDE/icons/*
 
 # Main-menu config. Add Menu changes to vnm-applications.menu
-COPY /neurodesk/menus/lxde-applications.menu /etc/xdg/menus/
-COPY /neurodesk/menus/vnm-applications.menu /etc/xdg/menus/
+RUN rm -rf /etc/xdg/menus/lxde-applications.menu
+RUN mv /neurodesk/menus/lxde-applications.menu /etc/xdg/menus/
+# THIS SHOULD BE INSERTED via the neurodesk install script	<!-- VNM Applications submenu -->
+	#<MergeFile>vnm-applications.menu</MergeFile>
+RUN ln -s /neurodesk/menus/vnm-applications.menu /etc/xdg/menus/
 
 RUN chmod 644 /etc/xdg/menus/lxde-applications.menu
 
-COPY /neurodesk/menus/vnm-neuroimaging.directory /usr/share/desktop-directories/
+RUN ln -s /neurodesk/menus/vnm-neuroimaging.directory /usr/share/desktop-directories/
+RUN ln -s /neurodesk/fetch_and_run.sh /usr/share/
 
 # Build the menu
-WORKDIR /neurodesk
+WORKDIR /neurodesk/menus
 RUN python3 build_menu.py
 
 RUN mkdir -p /root/Desktop/
