@@ -47,6 +47,8 @@ RUN apt-get update \
         git \
     && rm -rf /var/lib/apt/lists/*
 
+# add module script
+COPY ./config/module.sh /usr/share/
 
 # Add Visual Studio code
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -112,29 +114,30 @@ COPY ./config/rc.xml /etc/xdg/openbox
 COPY ./config/.itksnap.org /root/.itksnap.org
 COPY ./config/mimeapps.list /root/.config/mimeapps.list
 
-# add custom scripts
-COPY ./scripts/* /usr/share/
-
 # Use custom bottom panel configuration
-COPY ./menus/panel /root/.config/lxpanel/LXDE/panels/panel
+COPY ./config/panel /root/.config/lxpanel/LXDE/panels/panel
 
-# Application and submenu icons
-RUN mkdir -p /root/.config/lxpanel/LXDE/icons
-COPY ./menus/icons/* /root/.config/lxpanel/LXDE/icons/
-RUN chmod 644 /root/.config/lxpanel/LXDE/icons/*
 
-# Main-menu config. Add Menu changes to vnm-applications.menu
-COPY ./menus/lxde-applications.menu /etc/xdg/menus/
-COPY ./menus/vnm-applications.menu /etc/xdg/menus/
+# # Application and submenu icons
+# RUN mkdir -p /root/.config/lxpanel/LXDE/icons
+# COPY ./menus/icons/* /root/.config/lxpanel/LXDE/icons/
+# RUN chmod 644 /root/.config/lxpanel/LXDE/icons/*
 
-RUN chmod 644 /etc/xdg/menus/lxde-applications.menu
+# # Main-menu config. Add Menu changes to vnm-applications.menu
+# COPY ./menus/lxde-applications.menu /etc/xdg/menus/
+# COPY ./menus/vnm-applications.menu /etc/xdg/menus/
 
-COPY ./menus/vnm-neuroimaging.directory /usr/share/desktop-directories/
+# RUN chmod 644 /etc/xdg/menus/lxde-applications.menu
 
-# Build the menu
-WORKDIR /tmp
-COPY ./menus/build_menu.py ./menus/apps.json /tmp/
-RUN python3 build_menu.py
+# COPY ./menus/vnm-neuroimaging.directory /usr/share/desktop-directories/
+
+# # Build the menu
+# WORKDIR /tmp
+# COPY ./menus/build_menu.py ./menus/apps.json /tmp/
+# RUN python3 build_menu.py
+
+
+
 
 WORKDIR /vnm
 RUN mkdir -p /root/Desktop/
