@@ -62,6 +62,7 @@ RUN apt-get update \
         fish \
         code \
         git-annex \
+        openssh-client \
         python3-pip \
         rsync \
         rclone \
@@ -124,6 +125,7 @@ COPY ./config/panel /root/.config/lxpanel/LXDE/panels/panel
 WORKDIR /
 RUN git clone https://github.com/NeuroDesk/neurodesk.git /neurodesk
 WORKDIR /neurodesk
+# RUN git checkout refactor_make_paths_relative_to_installer
 RUN bash neurodesk.sh --lxde_system_install true
 
 RUN mkdir -p /root/Desktop/
