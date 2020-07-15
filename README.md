@@ -1,5 +1,5 @@
 # Virtual Neuro Machine
-![VNM Logo](virtualneuromachine_logo_small.png)
+# ![VNM Logo](virtualneuromachine_logo_small.png)
 
 ![Screenshot](Screenshot.png)
 
