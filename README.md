@@ -1,10 +1,10 @@
 # Virtual Neuro Machine
-![Screenshot](Screenshot.png)
 
 A compact Docker container with a browser-accessible environment for reproducible neuroimaging analysis. Only the required software packages, already pre-installed, are downloaded from a public library (downloaded as containers).
 
 Please complete the survey to help guide future additions to the software library: https://forms.gle/deKy85yniJLP4hDM8
 
+![Screenshot](Screenshot.png)
 
 ## Quickstart
 1. Install Docker from here: https://docs.docker.com/get-docker/ (Mac, Windows, Linux; for HPC/supercomputer: https://github.com/NeuroDesk/transparent-singularity)
