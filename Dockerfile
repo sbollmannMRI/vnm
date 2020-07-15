@@ -62,6 +62,7 @@ RUN apt-get update \
         fish \
         code \
         git-annex \
+        openssh-client \
         python3-pip \
         rsync \
         rclone \
@@ -128,6 +129,3 @@ RUN bash neurodesk.sh --lxde_system_install true
 
 RUN mkdir -p /root/Desktop/
 RUN ln -s /vnm /root/Desktop/vnm
-
-# example data
-COPY ./data/ /root/
