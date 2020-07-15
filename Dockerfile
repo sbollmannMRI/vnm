@@ -55,7 +55,7 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > mic
 RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 RUN echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vs-code.list
 
-# Install packages: code, vim, git-annex
+# Install useful packages:
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         htop \
@@ -66,6 +66,12 @@ RUN apt-get update \
         python3-pip \
         rsync \
         rclone \
+        less \
+        ImageMagick \
+        tree \
+        nano \
+        vim \
+        emacs \
     && rm -rf /var/lib/apt/lists/*
 
 # cleanup vs-code.list file to avoid apt error:
