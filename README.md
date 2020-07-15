@@ -75,5 +75,13 @@ https://github.com/NeuroDesk/neurodesk/blob/master/menus/apps.json
 curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/menus/apps.json
 ```
 
+## How to install applications inside VNM
+Click on the Launcher icon in left corner and navigate to the "VNM Neuroimaging" menu, then select the application and version you wish to install and the download will be initiated.
+
+Alternatively one can run the installation of an application from the command line, e.g.:
+```
+bash /neurodesk/menus/fetch_and_run.sh itksnap 3.8.0 20200714
+```
+
 ## Desktop modifications
 * window tiling is set to: SHIFT-ALT-CTRL-{left,right,up,down}
