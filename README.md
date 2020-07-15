@@ -54,6 +54,7 @@ open in VNC viewer:  http://localhost:5900
 * Fish Shell 3.1.0 (shell with autocomplete)
 * Git 2.25.1 (version control)
 * Git-Annex 8.20200226 (version control of data)
+* GNU Image Manipulation Program 2.10.18 (Bitmap editing program)
 * Julia 1.4.1 (programming language)
 * Lmod 6.6 (for handling different versions of software)
 * Nipype 1.5.0 (workflow system for neuro-imaging)
