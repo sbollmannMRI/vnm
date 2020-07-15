@@ -13,15 +13,15 @@ A compact Docker container with a browser-accessible environment for reproducibl
 
 * Mac:
 ```
-docker run --privileged --name vnm -v ~/vnm:/vnm -p 6080:80 vnmd/vnm:latest
+docker run --privileged --name vnm -v ~/vnm:/vnm -p 6080:80 vnmd/vnm:20200715
 ```
 * Windows:
 ```
-docker run --privileged --name vnm -v C:/vnm:/vnm -p 6080:80 vnmd/vnm:latest
+docker run --privileged --name vnm -v C:/vnm:/vnm -p 6080:80 vnmd/vnm:20200715
 ```
 * Linux:
 ```
-sudo docker run --privileged --name vnm -v ~/vnm:/vnm -p 6080:80 vnmd/vnm:latest
+sudo docker run --privileged --name vnm -v ~/vnm:/vnm -p 6080:80 vnmd/vnm:20200715
 ```
 
 4. Once VNM is downloaded i.e. "Listening on http://localhost:6079 (run.py:87)" is displayed in terminal, open a browser and go to:
