@@ -60,8 +60,17 @@ open in VNC viewer:  http://localhost:5900
 * Singularity 3.5.3 (container runtime)
 * Visual Studio Code 1.46.1 (code editor and development environment)
 
-## List of available neuroimaging packages:
-[list all available neuroimaging containers](https://github.com/NeuroDesk/caid/blob/master/Containerlist.md) 
+## This gives you a list of available images:
+https://github.com/NeuroDesk/caid/packages
+```
+curl -s https://github.com/Neurodesk/caid/packages | sed -n "s/^.*\/NeuroDesk\/caid\/packages\/.*>\(.*\)\(\S*\)<\/a>$/\1/p"
+```
+
+## This gives you a list of all tested images available in neurodesk:
+https://github.com/NeuroDesk/neurodesk/blob/master/menus/apps.json
+```
+curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/menus/apps.json
+```
 
 ## Desktop modifications
 * window tiling is set to: SHIFT-ALT-CTRL-{left,right,up,down}
