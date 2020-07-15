@@ -55,17 +55,24 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > mic
 RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 RUN echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vs-code.list
 
-# Install packages: code, vim, git-annex
+# Install useful packages:
 RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
-        htop \
-        fish \
+    && apt-get install -y \
         code \
+        emacs \
+        fish \
         git-annex \
+        gimp \
+        htop \
+        imagemagick \
+        less \
+        nano \
         openssh-client \
         python3-pip \
-        rsync \
         rclone \
+        rsync \
+        tree \
+        vim \
     && rm -rf /var/lib/apt/lists/*
 
 # cleanup vs-code.list file to avoid apt error:
@@ -82,7 +89,7 @@ COPY ./config/.bashrc /root/.bashrc
 
 # Install nipype: 
 RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
+    && apt-get install -y \
         gcc \
         python3-dev \
     && rm -rf /var/lib/apt/lists/*
