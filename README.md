@@ -90,7 +90,7 @@ bash /neurodesk/menus/fetch_and_run.sh fsl 6.0.1 20200702
 2. Examine the list of downloaded packages that shows up in the terminal window
 3. Use the 'module' command, giving the desired downloaded package as an argument, e.g.
 ```
-module fsl_6.0.1
+module load fsl_6.0.1
 ```
 4. Call the programs/scripts included in the package as you would do if it was installed on your desktop, e.g.
 ```
