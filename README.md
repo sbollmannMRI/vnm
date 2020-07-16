@@ -77,7 +77,7 @@ curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/menus/apps.
 ```
 
 ## How to install applications inside VNM
-Click on the Launcher icon in bottom-left corner and navigate to the "VNM Neuroimaging" menu, then select the application and version you wish to install and the download will be initiated. The download will be completed when the "Singularity>" propmpt appears in the terminal window that opens.
+Click on the Launcher icon in bottom-left corner and navigate to the "VNM Neuroimaging" menu, then select the application and version you wish to install and the download will be initiated. The download is completed when the "Singularity>" propmpt appears in the terminal window that opens.
 
 Alternatively one can run the installation of an application from the command line, e.g.:
 ```
