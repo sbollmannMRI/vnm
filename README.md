@@ -81,7 +81,7 @@ Click on the Launcher icon in bottom-left corner and navigate to the "VNM Neuroi
 
 Alternatively one can run the installation of an application from the command line, e.g.:
 ```
-bash /neurodesk/menus/fetch_and_run.sh fsl 6.0.1 20200714
+bash /neurodesk/menus/fetch_and_run.sh fsl 6.0.1 20200702
 ```
 
 ## How to use applications from the command line
