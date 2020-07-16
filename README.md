@@ -49,7 +49,7 @@ add the following parameter to the docker call:
 open in VNC viewer:  http://localhost:5900
 ```
 
-## List of available software in the Desktop
+## List of available software in the Desktop (no need to download! already included in main container)
 * Datalad 0.13.0 (great interface for version control of data using git-annex)
 * Fish Shell 3.1.0 (shell with autocomplete)
 * Git 2.25.1 (version control)
@@ -77,11 +77,23 @@ curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/menus/apps.
 ```
 
 ## How to install applications inside VNM
-Click on the Launcher icon in left corner and navigate to the "VNM Neuroimaging" menu, then select the application and version you wish to install and the download will be initiated.
+Click on the Launcher icon in bottom-left corner and navigate to the "VNM Neuroimaging" menu, then select the application and version you wish to install and the download will be initiated. The download will be completed when the "Singularity>" propmpt appears in the terminal window that opens.
 
 Alternatively one can run the installation of an application from the command line, e.g.:
 ```
-bash /neurodesk/menus/fetch_and_run.sh itksnap 3.8.0 20200714
+bash /neurodesk/menus/fetch_and_run.sh fsl 6.0.1 20200714
+```
+
+## How to use applications from the command line
+1. Open a terminal window (there is a terminal icon in the bottom application bar)
+2. Examine the list of downloaded packages that shows up in the terminal window
+3. Use the 'module' command, giving the desired downloaded package as an argument, e.g.
+```
+module fsl_6.0.1
+```
+4. Call the programs/scripts included in the package as you would do if it was installed on your desktop, e.g.
+```
+fsleyes
 ```
 
 ## Desktop modifications
