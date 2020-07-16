@@ -83,6 +83,7 @@ Alternatively one can run the installation of an application from the command li
 ```
 bash /neurodesk/menus/fetch_and_run.sh fsl 6.0.1 20200702
 ```
+(Notice: last argument is to be taken from https://github.com/NeuroDesk/neurodesk/blob/master/menus/apps.json)
 
 ## How to use applications from the command line
 1. Open a terminal window (there is a terminal icon in the bottom application bar)
