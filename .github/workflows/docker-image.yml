@@ -39,7 +39,7 @@ jobs:
         echo "::set-env name=ROOTFS_NEW::$ROOTFS_NEW"
         echo "::set-env name=BUILDDATE::$BUILDDATE"
     - name: Push to Github packages (if changes found)
-      if: env.ROOTFS_NEW != env.ROOTFS_CACHE
+      if: env.GITHUB_REF != 'master' && env.ROOTFS_NEW != env.ROOTFS_CACHE
       run: |
         # Push to GH Packages
         docker tag $IMAGEID:$SHORT_SHA $IMAGEID:$BUILDDATE
@@ -47,7 +47,7 @@ jobs:
         docker push $IMAGEID:latest
         docker push $IMAGEID:$BUILDDATE
     - name: Push to Dockerhub  (if enabled & changes found)
-      if: env.DOCKERHUB_ORG != ''
+      if: env.GITHUB_REF != 'master' && env.DOCKERHUB_ORG != ''
       run: |
         echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
         # Push to GH Packages
