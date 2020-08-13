@@ -100,4 +100,4 @@ fsleyes
 ## Desktop modifications
 * window tiling is set to: SHIFT-ALT-CTRL-{left,right,up,down}
 
-!(nif.png)
+![nif](nif.png)
