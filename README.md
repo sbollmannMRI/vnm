@@ -11,7 +11,7 @@ Please complete the survey to help guide future additions to the software librar
 
 2. Create a local folder where the downloaded software packages will be stored, e.g. ~/vnm in Mac and Linux, or C:\vnm in Windows 
 
-3. Open a terminal, and type the folowing command to automatically download the vnm container and run it (Mac, Windows, Linux commands listed below) 
+3. Open a terminal, and type the folowing command to automatically download the VNM container and run it (Mac, Windows, Linux commands listed below) 
 
 * Mac:
 ```
@@ -32,12 +32,19 @@ http://localhost:6080
 ```
 or open a VNC Client and connect to port 5900
 
-5. Stop the vnm container by pressing control-C then typing:
+5. VNM is ready to use!
+
+
+## stopping VNM:
+1. Click on the terminal from which you ran VNM
+
+2. Press control-C
+
+3. Type:
 ```
 docker stop vnm
 ```
-
-6. Delete the vnm container by typing:
+4. Type:
 ```
 docker rm vnm
 ```
