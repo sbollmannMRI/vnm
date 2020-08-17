@@ -35,6 +35,16 @@ or open a VNC Client and connect to port 5900
 5. VNM is ready to use!
 
 
+## How to launch/download applications
+Click on the Launcher icon in bottom-left corner and navigate to the "VNM Neuroimaging" menu, then select the application and version you wish to launch. If it is the first time you launch the application, it will be downloaded to your desktop environment. The application is ready to use when the "Singularity>" propmpt appears in the terminal window that opens. You can now run the GUI of the application (e.g., typing 'fsl') or any other utilities included with it.
+
+Alternatively one can download an application from the command line, e.g.:
+```
+bash /neurodesk/menus/fetch_and_run.sh fsl 6.0.1 20200702
+```
+(Notice: last argument is to be taken from https://github.com/NeuroDesk/neurodesk/blob/master/menus/apps.json)
+
+
 ## stopping VNM:
 1. Click on the terminal from which you ran VNM
 
@@ -82,15 +92,6 @@ https://github.com/NeuroDesk/neurodesk/blob/master/menus/apps.json
 ```
 curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/menus/apps.json
 ```
-
-## How to install applications inside VNM
-Click on the Launcher icon in bottom-left corner and navigate to the "VNM Neuroimaging" menu, then select the application and version you wish to install and the download will be initiated. The download is completed when the "Singularity>" propmpt appears in the terminal window that opens.
-
-Alternatively one can run the installation of an application from the command line, e.g.:
-```
-bash /neurodesk/menus/fetch_and_run.sh fsl 6.0.1 20200702
-```
-(Notice: last argument is to be taken from https://github.com/NeuroDesk/neurodesk/blob/master/menus/apps.json)
 
 ## How to use applications from the command line
 1. Open a terminal window (there is a terminal icon in the bottom application bar)
