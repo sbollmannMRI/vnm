@@ -45,7 +45,7 @@ bash /neurodesk/menus/fetch_and_run.sh fsl 6.0.1 20200702
 (Notice: last argument is to be taken from https://github.com/NeuroDesk/neurodesk/blob/master/menus/apps.json)
 
 
-## stopping VNM:
+## Stopping VNM:
 1. Click on the terminal from which you ran VNM
 
 2. Press control-C
@@ -59,7 +59,7 @@ docker stop vnm
 docker rm vnm
 ```
 
-## start with custom screen resolution for VNC Viewer:
+## Start with custom screen resolution for VNC Viewer:
 add the following parameter to the docker call:
 ```
 -e RESOLUTION=1920x980
