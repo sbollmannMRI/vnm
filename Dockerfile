@@ -84,7 +84,7 @@ RUN pip3 install datalad datalad_container \
     && rm -rf /home/ubuntu/.cache/
 
 # setup module system & singularity
-COPY ./config/.bashrc /root/.bashrc
+COPY ./config/.bashrc /etc/skel/.bashrc
 
 
 # Install nipype: 
@@ -128,12 +128,14 @@ ENV PATH="/usr/local/singularity/bin:${PATH}" \
 COPY ./config/rc.xml /etc/xdg/openbox
 
 # configure ITKsnap
-COPY ./config/.itksnap.org /root/.itksnap.org
-COPY ./config/mimeapps.list /root/.config/mimeapps.list
+COPY ./config/.itksnap.org /etc/skel/.itksnap.org
+COPY ./config/mimeapps.list /etc/skel/.config/mimeapps.list
 
 # Use custom bottom panel configuration
-COPY ./config/panel /root/.config/lxpanel/LXDE/panels/panel
+COPY ./config/panel /etc/skel/.config/lxpanel/LXDE/panels/panel
 
+# configure where new home-directories are created
+COPY ./config/useradd /etc/default/
 
 # Application and submenu icons
 WORKDIR /
@@ -143,13 +145,8 @@ RUN git fetch --all --tags
 RUN git checkout tags/20200827 -b 20200827
 RUN bash neurodesk.sh --lxde_system_install true
 
-RUN mkdir -p /root/Desktop/
-RUN ln -s /vnm /root/Desktop/vnm
-
-
-# add no-sanbox option to chrome to enable running chrome as root user
-RUN sed -i 's/google-chrome-stable/google-chrome-stable --no-sandbox/g' /usr/share/applications/google-chrome.desktop
-RUN sed -i 's/x-www-browser/x-www-browser --no-sandbox/g' /usr/share/applications/lxde-x-www-browser.desktop
+RUN mkdir -p /etc/skel/Desktop/
+RUN ln -s /vnm /etc/skel/Desktop/
 
 
 
