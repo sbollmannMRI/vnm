@@ -23,7 +23,7 @@ docker run --privileged --name vnm -v C:/vnm:/vnm -p 6080:80 -p 5900:5900 vnmd/v
 ```
 * Linux:
 ```
-sudo docker run --privileged --name vnm -v ~/vnm:/vnm -p 6080:80 -p 5900:5900 vnmd/vnm:20200715
+sudo docker run --privileged --name vnm -v ~/vnm:/vnm -v /dev/shm:/dev/shm -p 6080:80 -p 5900:5900 vnmd/vnm:20200715
 ```
 
 4. Once VNM is downloaded i.e. "INFO success: novnc entered RUNNING state" is displayed in terminal, open a browser and go to:
