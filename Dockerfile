@@ -34,7 +34,20 @@ COPY --from=builder /usr/local/singularity /usr/local/singularity
 # COPY ./config/useradd /etc/default/
 # This does not work because the container overrites this: needs to be fixed in https://github.com/fcwu/docker-ubuntu-vnc-desktop/blob/develop/rootfs/startup.sh
 
-# Install singularity's and lmod's runtime dependencies.
+# This bundles all installs to get a faster container build:
+# Add Visual Studio code
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+RUN echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vs-code.list
+
+# install nextcloud client
+RUN add-apt-repository ppa:nextcloud-devs/client
+
+# Install packages with --no-install-recommends to keep things slim
+# 1) singularity's and lmod's runtime dependencies.
+# 2) various tools
+# 3) julia
+# 4) nextcloud-client
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         cryptsetup \
@@ -48,19 +61,6 @@ RUN apt-get update \
         lua5.2 \
         lmod \
         git \
-    && rm -rf /var/lib/apt/lists/*
-
-# add module script
-COPY ./config/module.sh /usr/share/
-
-# Add Visual Studio code
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-RUN echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vs-code.list
-
-# Install useful packages:
-RUN apt-get update \
-    && apt-get install -y \
         code \
         emacs \
         fish \
@@ -76,47 +76,35 @@ RUN apt-get update \
         rsync \
         tree \
         vim \
-    && rm -rf /var/lib/apt/lists/*
-
-# cleanup vs-code.list file to avoid apt error:
-RUN rm /etc/apt/sources.list.d/vs-code.list
-
-# install datalad
-RUN pip3 install datalad datalad_container \
-    && rm -rf /root/.cache/pip \
-    && rm -rf /home/ubuntu/.cache/
-
-# setup module system & singularity
-COPY ./config/.bashrc /etc/skel/.bashrc
-
-
-# Install nipype: 
-RUN apt-get update \
-    && apt-get install -y \
         gcc \
         python3-dev \
-    && rm -rf /var/lib/apt/lists/*
-RUN pip3 install nipype \
-    && rm -rf /root/.cache/pip \
-    && rm -rf /home/ubuntu/.cache/
-
-# Install julia:
-RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
         libzstd1 \
         julia \
         libjulia1 \
         libgfortran5 \
         zlib1g-dev \
+        nextcloud-client \
     && rm -rf /var/lib/apt/lists/*
 
-# install nextcloud client
-RUN add-apt-repository ppa:nextcloud-devs/client
-RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
-         nextcloud-client \
-    && rm -rf /var/lib/apt/lists/*
 
+# # Install packages without --no-install-recomends where needed:
+# RUN apt-get update \
+#     && apt-get install -y \
+#     && rm -rf /var/lib/apt/lists/*
+
+# add module script
+COPY ./config/module.sh /usr/share/
+
+# cleanup vs-code.list file to avoid apt error:
+RUN rm /etc/apt/sources.list.d/vs-code.list
+
+# install datalad & niype
+RUN pip3 install datalad datalad_container nipype \
+    && rm -rf /root/.cache/pip \
+    && rm -rf /home/ubuntu/.cache/
+
+# setup module system & singularity
+COPY ./config/.bashrc /etc/skel/.bashrc
 
 # Necessary to pass the args from outside this build (it is defined before the FROM).
 ARG GO_VERSION
@@ -137,8 +125,6 @@ COPY ./config/mimeapps.list /etc/skel/.config/mimeapps.list
 # Use custom bottom panel configuration
 COPY ./config/panel /etc/skel/.config/lxpanel/LXDE/panels/panel
 
-
-
 # Application and submenu icons
 WORKDIR /
 RUN git clone https://github.com/NeuroDesk/neurodesk.git /neurodesk
@@ -149,7 +135,3 @@ RUN bash neurodesk.sh --lxde_system_install true
 
 RUN mkdir -p /etc/skel/Desktop/
 RUN ln -s /vnm /etc/skel/Desktop/
-
-
-
-
