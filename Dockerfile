@@ -107,6 +107,13 @@ RUN apt-get update \
         zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# install nextcloud client
+RUN add-apt-repository ppa:nextcloud-devs/client
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+         nextcloud-client \
+    && rm -rf /var/lib/apt/lists/*
+
 
 # Necessary to pass the args from outside this build (it is defined before the FROM).
 ARG GO_VERSION
@@ -132,7 +139,8 @@ COPY ./config/panel /root/.config/lxpanel/LXDE/panels/panel
 WORKDIR /
 RUN git clone https://github.com/NeuroDesk/neurodesk.git /neurodesk
 WORKDIR /neurodesk
-RUN git checkout tags/20200820
+RUN git fetch --all --tags
+RUN git checkout tags/20200827 -b 20200827
 RUN bash neurodesk.sh --lxde_system_install true
 
 RUN mkdir -p /root/Desktop/
