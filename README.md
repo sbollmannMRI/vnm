@@ -34,6 +34,7 @@ or open a VNC Client and connect to port 5900
 
 5. VNM is ready to use!
 
+(The sudo default sudo password is "ubuntu")
 
 ## How to launch/download applications
 Click on the Launcher icon in bottom-left corner and navigate to the "VNM Neuroimaging" menu, then select the application and version you wish to launch. If it is the first time you launch the application, it will be downloaded to your desktop environment. The application is ready to use when the "Singularity>" propmpt appears in the terminal window that opens. You can now run the GUI of the application (e.g., typing 'fsl') or any other utilities included with it.
