@@ -30,6 +30,9 @@ FROM dorowu/ubuntu-desktop-lxde-vnc:focal
 # Install singularity into the final image.
 COPY --from=builder /usr/local/singularity /usr/local/singularity
 
+# configure where new home-directories are created
+# COPY ./config/useradd /etc/default/
+# This does not work because the container overrites this: needs to be fixed in https://github.com/fcwu/docker-ubuntu-vnc-desktop/blob/develop/rootfs/startup.sh
 
 # Install singularity's and lmod's runtime dependencies.
 RUN apt-get update \
@@ -134,8 +137,7 @@ COPY ./config/mimeapps.list /etc/skel/.config/mimeapps.list
 # Use custom bottom panel configuration
 COPY ./config/panel /etc/skel/.config/lxpanel/LXDE/panels/panel
 
-# configure where new home-directories are created
-COPY ./config/useradd /etc/default/
+
 
 # Application and submenu icons
 WORKDIR /
