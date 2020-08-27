@@ -136,3 +136,12 @@ RUN bash neurodesk.sh --lxde_system_install true
 
 RUN mkdir -p /root/Desktop/
 RUN ln -s /vnm /root/Desktop/vnm
+
+
+# add no-sanbox option to chrome to enable running chrome as root user
+RUN sed -i 's/google-chrome-stable/google-chrome-stable --no-sandbox/g' /usr/share/applications/google-chrome.desktop
+RUN sed -i 's/x-www-browser/x-www-browser --no-sandbox/g' /usr/share/applications/lxde-x-www-browser.desktop
+
+
+
+
