@@ -132,6 +132,7 @@ COPY ./config/panel /root/.config/lxpanel/LXDE/panels/panel
 WORKDIR /
 RUN git clone https://github.com/NeuroDesk/neurodesk.git /neurodesk
 WORKDIR /neurodesk
+RUN git checkout tags/20200820
 RUN bash neurodesk.sh --lxde_system_install true
 
 RUN mkdir -p /root/Desktop/
