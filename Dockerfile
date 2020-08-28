@@ -30,9 +30,7 @@ FROM dorowu/ubuntu-desktop-lxde-vnc:focal
 # Install singularity into the final image.
 COPY --from=builder /usr/local/singularity /usr/local/singularity
 
-# configure where new home-directories are created
-# COPY ./config/useradd /etc/default/
-# This does not work because the container overrites this: needs to be fixed in https://github.com/fcwu/docker-ubuntu-vnc-desktop/blob/develop/rootfs/startup.sh
+
 
 # This bundles all installs to get a faster container build:
 # Add Visual Studio code
@@ -135,3 +133,8 @@ RUN bash neurodesk.sh --lxde_system_install true
 
 RUN mkdir -p /etc/skel/Desktop/
 RUN ln -s /vnm /etc/skel/Desktop/
+
+
+# configure where new home-directories are created
+# The homedirectory is configured on startup: https://github.com/fcwu/docker-ubuntu-vnc-desktop/blob/develop/rootfs/startup.sh
+COPY ./config/startup.sh /startup.sh
