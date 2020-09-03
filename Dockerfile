@@ -138,4 +138,4 @@ RUN ln -s /vnm /etc/skel/Desktop/
 
 # configure where new home-directories are created
 # The homedirectory is configured on startup: https://github.com/fcwu/docker-ubuntu-vnc-desktop/blob/develop/rootfs/startup.sh
-COPY ./config/startup.sh /startup.sh
+# COPY ./config/startup.sh /startup.sh
