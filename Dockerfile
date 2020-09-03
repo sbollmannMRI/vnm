@@ -76,6 +76,7 @@ RUN apt-get update \
         vim \
         gcc \
         python3-dev \
+        graphviz \
         libzstd1 \
         julia \
         libjulia1 \
