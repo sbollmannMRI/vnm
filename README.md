@@ -110,6 +110,4 @@ fsleyes
 * window tiling is set to: SHIFT-ALT-CTRL-{left,right,up,down}
 
 ## Acknowledgments
-![nif](nif.png)
-
-![logo-long-full](logo-long-full.svg)
+<img src="https://github.com/NeuroDesk/vnm/blob/master/nif.png" width="250"><img src="https://github.com/NeuroDesk/vnm/blob/master/logo-long-full.svg" width="250"><img src="https://github.com/NeuroDesk/vnm/blob/master/uq_logo.png" width="250">
