@@ -113,3 +113,4 @@ fsleyes
 <img src="https://github.com/NeuroDesk/vnm/blob/master/nif.png" width="250">
 <img src="https://github.com/NeuroDesk/vnm/blob/master/uq_logo.png" width="250">
 <img src="https://github.com/NeuroDesk/vnm/blob/master/logo-long-full.svg" width="250">
+<img src="https://www.gigacrc.uliege.be/upload/docs/image/svg-xml/2018-10/_uliege_giga_crc.svg" width="250">
