@@ -129,8 +129,10 @@ WORKDIR /
 RUN git clone https://github.com/NeuroDesk/neurodesk.git /neurodesk
 WORKDIR /neurodesk
 RUN git fetch --all --tags
-RUN git checkout tags/20201015 -b latest
-RUN bash neurodesk.sh --lxde_system_install true
+RUN git checkout tags/20201020 -b latest
+# RUN bash neurodesk.sh --lxde_system_install true
+RUN bash build.sh --lxde
+RUN bash install.sh
 
 RUN mkdir -p /etc/skel/Desktop/
 RUN ln -s /vnm /etc/skel/Desktop/
