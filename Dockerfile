@@ -134,6 +134,8 @@ RUN git checkout tags/20201020 -b latest
 RUN bash build.sh --lxde
 RUN bash install.sh
 
+RUN ln -s /vnm/containers /neurodesk/local/containers
+
 RUN mkdir -p /etc/skel/Desktop/
 RUN ln -s /vnm /etc/skel/Desktop/
 
