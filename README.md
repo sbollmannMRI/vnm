@@ -4,7 +4,7 @@ A compact Docker container with a browser-accessible environment for reproducibl
 
 Please complete the survey to help guide future additions to the software library: https://forms.gle/deKy85yniJLP4hDM8
 
-For inquiries, please open an issue, or contact Steffen Bolmmann (https://github.com/stebo85) or Oren Civier (https://github.com/civier).
+For inquiries, please open a new issue, or contact Steffen Bolmmann (https://github.com/stebo85) or Oren Civier (https://github.com/civier).
 
 ![Screenshot](Screenshot.png)
 
