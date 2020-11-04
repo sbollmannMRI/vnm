@@ -126,10 +126,11 @@ COPY ./config/panel /etc/skel/.config/lxpanel/LXDE/panels/panel
 
 # Application and submenu icons
 WORKDIR /
-RUN git clone https://github.com/NeuroDesk/neurodesk.git /neurodesk
+# RUN git clone https://github.com/NeuroDesk/neurodesk.git /neurodesk
+COPY neurodesk /neurodesk
 WORKDIR /neurodesk
-RUN git fetch --all --tags
-RUN git checkout tags/20201104 -b latest
+# RUN git fetch --all --tags
+# RUN git checkout tags/20201104 -b latest
 RUN bash build.sh --lxde --edit
 RUN bash install.sh
 
