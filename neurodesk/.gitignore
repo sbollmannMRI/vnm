@@ -1,0 +1,7 @@
+all_execs.sh
+log_*
+.vscode
+*.ini
+local
+__pycache__
+*.pyc
