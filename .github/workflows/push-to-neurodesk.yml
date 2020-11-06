@@ -5,10 +5,12 @@ on:
     paths:
       - neurodesk/*
       - .github/workflows/push-to-neurodesk.yml
+      - .gitattributes
   pull_request:
     paths:
       - neurodesk/*
       - .github/workflows/push-to-neurodesk.yml
+      - .gitattributes
 
 jobs:
   build:
