@@ -16,7 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: NeuroDesk/vnm
           token: ${{secrets.VNM_NEURODESK}}
           persist-credentials: false
           fetch-depth: 0
