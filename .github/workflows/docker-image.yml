@@ -8,6 +8,13 @@ on:
       - Dockerfile
       - config/*
       - neurodesk/*
+  merge:
+    branches: [ master ]
+    paths:
+      - .github/workflows/docker-image.yml
+      - Dockerfile
+      - config/*
+      - neurodesk/*
   pull_request:
     paths:
       - .github/workflows/docker-image.yml
