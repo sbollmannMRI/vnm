@@ -128,9 +128,11 @@ COPY ./config/panel /etc/skel/.config/lxpanel/LXDE/panels/panel
 WORKDIR /
 
 RUN git clone https://github.com/NeuroDesk/neurodesk.git /neurodesk
-
-# The subtree of neurodesk does not work and breaks most of the icons? Also, it breaks the git association and an update of the neurodesk is not possible within VNM -> need to look at this
-# COPY neurodesk /neurodesk
+# The subtree of neurodesk does not work and breaks most of the icons? 
+# Need to check if this happens again 
+# Also, it breaks the git association and an update of the neurodesk is not possible within VNM 
+# -> solution for now: fixed icons manually and clone git first, then replace with subtree files
+COPY neurodesk /neurodesk
 
 WORKDIR /neurodesk
 # RUN git fetch --all --tags
