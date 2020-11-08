@@ -45,7 +45,7 @@ Alternatively one can download an application from the command line, e.g.:
 ```
 bash /neurodesk/menus/fetch_and_run.sh fsl 6.0.1 20200702
 ```
-(Notice: last argument is to be taken from https://github.com/NeuroDesk/neurodesk/blob/master/menus/apps.json)
+(Notice: last argument is to be taken from https://github.com/NeuroDesk/neurodesk/blob/master/master/neurodesk/apps.json)
 
 
 ## Stopping VNM:
@@ -91,9 +91,9 @@ curl -s https://github.com/Neurodesk/caid/packages | sed -n "s/^.*\/NeuroDesk\/c
 ```
 
 ## This gives you a list of all tested images available in neurodesk:
-https://github.com/NeuroDesk/neurodesk/blob/master/menus/apps.json
+https://github.com/NeuroDesk/neurodesk/blob/master/master/neurodesk/apps.json
 ```
-curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/menus/apps.json
+curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/master/neurodesk/apps.json
 ```
 
 ## How to use applications from the command line
