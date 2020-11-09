@@ -38,7 +38,7 @@
     "fmriprep": {
         "apps": {
             "fmriprep 20.2.0": {
-                "version": "20201105",
+                "version": "20201108",
                 "exec": ""
             }
         }
@@ -86,7 +86,7 @@
     "julia": {
         "apps": {
             "julia 1.4.1": {
-                "version": "20201104",
+                "version": "20201108",
                 "exec": ""
             }
         }
@@ -142,15 +142,19 @@
     "slicer": {
         "apps": {
             "slicer 4.11.20200930": {
-                "version": "20201106",
+                "version": "20201108",
                 "exec": ""
+            },
+            "3DSlicerGui-slicer 4.11.20200930": {
+                "version": "20201108",
+                "exec": "Slicer"
             }
         }
     },
     "spinalcordtoolbox": {
         "apps": {
             "spinalcordtoolbox 4.3": {
-                "version": "20201015",
+                "version": "20201108",
                 "exec": ""
             }
         }

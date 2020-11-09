@@ -32,17 +32,30 @@ do
 done < log.txt
 
 # check if the installer runs:
-cd ..
-bash build.sh --lxde --edit
-bash install.sh
-
-# if it got until here, all containers exist - we can tag a new release:
-#tagging release
-# buildDate=`date +%Y%m%d`
-# echo "tagging this release as ${buildDate}"
-# # git tag -d ${buildDate}
-# # git push --delete origin ${buildDate}
-# git tag ${buildDate} --force
-# git push origin --tags --force
-
-#push this to vnm repo:
+# Currently doesn't work because it somehow uses Python2?
+# testing neurodocker installer ... 
+# python version is ... 
+# Python 3.8.6
+# Traceback (most recent call last):
+#   File "/usr/lib/python2.7/runpy.py", line 174, in _run_module_as_main
+#     "__main__", fname, loader, pkg_name)
+#   File "/usr/lib/python2.7/runpy.py", line 72, in _run_code
+#     exec code in run_globals
+#   File "/home/runner/work/neurodesk/neurodesk/neurodesk/__main__.py", line 1, in <module>
+#     from neurodesk import neurodesk
+#   File "neurodesk/neurodesk.py", line 47
+#     def vnm_xml(xml: Path, newxml: Path) -> None:
+#                    ^
+# SyntaxError: invalid syntax
+# neurodesk/configparser.sh: line 18: /home/runner/work/neurodesk/neurodesk/neurodesk/config.ini: No such file or directory
+# /home/runner/work/neurodesk/neurodesk/neurodesk/config.ini
+# WARNING: Will modify/replace system files!!!
+# !!! Add <MergeFile>vnm-applications.menu</MergeFile> to  !!!
+# ln: failed to create symbolic link '/vnm': File exists
+# cd ..
+# sudo apt install lxde
+# echo "testing neurodocker installer ... "
+# echo "python version is ... "
+# python --version
+# sudo bash build.sh --lxde --edit
+# sudo bash install.sh
