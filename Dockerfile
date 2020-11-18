@@ -82,6 +82,7 @@ RUN apt-get update \
         libjulia1 \
         libgfortran5 \
         zlib1g-dev \
+        zip \
         nextcloud-client \
     && rm -rf /var/lib/apt/lists/*
 
