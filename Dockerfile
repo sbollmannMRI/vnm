@@ -33,13 +33,11 @@ COPY --from=builder /usr/local/singularity /usr/local/singularity
 
 
 # This bundles all installs to get a faster container build:
-# Add Visual Studio code
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-RUN echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vs-code.list
-
-# install nextcloud client
-RUN add-apt-repository ppa:nextcloud-devs/client
+# Add Visual Studio code and nextcloud client
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg \
+    && mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg \
+    && echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vs-code.list \
+    && add-apt-repository ppa:nextcloud-devs/client
 
 # Install packages with --no-install-recommends to keep things slim
 # 1) singularity's and lmod's runtime dependencies.
@@ -84,19 +82,11 @@ RUN apt-get update \
         zlib1g-dev \
         zip \
         nextcloud-client \
-    && rm -rf /var/lib/apt/lists/*
-
-
-# # Install packages without --no-install-recomends where needed:
-# RUN apt-get update \
-#     && apt-get install -y \
-#     && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && rm /etc/apt/sources.list.d/vs-code.list
 
 # add module script
 COPY ./config/module.sh /usr/share/
-
-# cleanup vs-code.list file to avoid apt error:
-RUN rm /etc/apt/sources.list.d/vs-code.list
 
 # install datalad & niype
 RUN pip3 install datalad datalad_container nipype \
@@ -129,22 +119,13 @@ COPY ./config/panel /etc/skel/.config/lxpanel/LXDE/panels/panel
 WORKDIR /
 
 RUN git clone https://github.com/NeuroDesk/neurodesk.git /neurodesk
-# The subtree of neurodesk does not work and breaks most of the icons? 
-# Need to check if this happens again 
-# Also, it breaks the git association and an update of the neurodesk is not possible within VNM 
-# -> solution for now: fixed icons manually and clone git first, then replace with subtree files
-COPY neurodesk /neurodesk
 
 WORKDIR /neurodesk
-# RUN git fetch --all --tags
-# RUN git checkout tags/20201104 -b latest
-RUN bash build.sh --lxde --edit
-RUN bash install.sh
-
-RUN ln -s /vnm/containers /neurodesk/local/containers
-
-RUN mkdir -p /etc/skel/Desktop/
-RUN ln -s /vnm /etc/skel/Desktop/
+RUN bash build.sh --lxde --edit \
+    && bash install.sh \
+    && ln -s /vnm/containers /neurodesk/local/containers \
+    && mkdir -p /etc/skel/Desktop/ \
+    && ln -s /vnm /etc/skel/Desktop/
 
 
 # configure where new home-directories are created
