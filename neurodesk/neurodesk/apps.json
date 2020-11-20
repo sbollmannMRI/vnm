@@ -30,7 +30,15 @@
     "bidstools": {
         "apps": {
             "bidstools 1.0.0": {
-                "version": "20201118",
+                "version": "20201120",
+                "exec": ""
+            }
+        }
+    },
+    "connectomeworkbench": {
+        "apps": {
+            "connectomeworkbench 1.4.2": {
+                "version": "20201119",
                 "exec": ""
             }
         }
@@ -39,6 +47,14 @@
         "apps": {
             "convert3d 1.0.0": {
                 "version": "20200811",
+                "exec": ""
+            }
+        }
+    },
+    "datalad": {
+        "apps": {
+            "datalad 0.13.3": {
+                "version": "20201119",
                 "exec": ""
             }
         }
@@ -171,7 +187,7 @@
         "apps": {
             "spm12-spm12 r7219": {
                 "version": "20201118",
-                "exec": "spm12_glnxa64"
+                "exec": "run_spm12.sh /opt/matlabmcr-2010a/"
             }
         }
     },
