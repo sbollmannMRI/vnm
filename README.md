@@ -70,16 +70,10 @@ open in VNC viewer:  http://localhost:5900
 ```
 
 ## List of available software in the Desktop (no need to download! already included in main container)
-* Datalad 0.13.0 (great interface for version control of data using git-annex)
-* Fish Shell 3.1.0 (shell with autocomplete)
 * Git 2.25.1 (version control)
-* Git-Annex 8.20200226 (version control of data)
-* GNU Image Manipulation Program 2.10.18 (Bitmap editing program)
-* Julia 1.4.1 (programming language)
 * Lmod 6.6 (for handling different versions of software)
 * Nipype 1.5.0 (workflow system for neuro-imaging)
 * Python 3.8.2 (programming language)
-* Rclone v1.50.2 (rsync for cloud storage providers)
 * Rsync 3.1.3 (synchronization of data)
 * Singularity 3.5.3 (container runtime)
 * Visual Studio Code 1.46.1 (code editor and development environment)
