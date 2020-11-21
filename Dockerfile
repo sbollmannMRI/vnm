@@ -72,7 +72,6 @@ RUN apt-get update \
         python3-dev \
         graphviz \
         libzstd1 \
-        libjulia1 \
         libgfortran5 \
         zlib1g-dev \
         zip \
