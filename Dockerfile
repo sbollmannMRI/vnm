@@ -59,16 +59,12 @@ RUN apt-get update \
         git \
         code \
         emacs \
-        fish \
-        git-annex \
-        gimp \
         htop \
         imagemagick \
         less \
         nano \
         openssh-client \
         python3-pip \
-        rclone \
         rsync \
         tree \
         vim \
@@ -76,7 +72,6 @@ RUN apt-get update \
         python3-dev \
         graphviz \
         libzstd1 \
-        julia \
         libjulia1 \
         libgfortran5 \
         zlib1g-dev \
@@ -88,8 +83,8 @@ RUN apt-get update \
 # add module script
 COPY ./config/module.sh /usr/share/
 
-# install datalad & niype
-RUN pip3 install datalad datalad_container nipype \
+# install nipype
+RUN pip3 install nipype \
     && rm -rf /root/.cache/pip \
     && rm -rf /home/ubuntu/.cache/
 

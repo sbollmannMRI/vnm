@@ -9,7 +9,7 @@ For inquiries, please open a new issue, or contact Steffen Bollmann (https://git
 ![Screenshot](Screenshot.png)
 
 ## Quickstart
-1. Install Docker from here: https://docs.docker.com/get-docker/ (Mac, Windows, Linux; for HPC/supercomputer: https://github.com/NeuroDesk/transparent-singularity)
+1. Install Docker from here: https://docs.docker.com/get-docker/ (Mac, Windows, Linux; for HPC/supercomputer: https://github.com/NeuroDesk/neurodesk)
 
 2. Create a local folder where the downloaded software packages will be stored, e.g. ~/vnm in Mac and Linux, or C:\vnm in Windows 
 
@@ -43,9 +43,9 @@ Click on the Launcher icon in bottom-left corner and navigate to the "VNM Neuroi
 
 Alternatively one can download an application from the command line, e.g.:
 ```
-bash /neurodesk/menus/fetch_and_run.sh fsl 6.0.1 20200702
+bash /neurodesk/local/fetch_and_run.sh fsl 6.0.3 20200905
 ```
-(Notice: last argument is to be taken from https://github.com/NeuroDesk/neurodesk/blob/master/master/neurodesk/apps.json)
+(Notice: last argument is to be taken from https://github.com/NeuroDesk/neurodesk/blob/master/neurodesk/apps.json)
 
 
 ## Stopping VNM:
@@ -91,9 +91,9 @@ curl -s https://github.com/Neurodesk/caid/packages | sed -n "s/^.*\/NeuroDesk\/c
 ```
 
 ## This gives you a list of all tested images available in neurodesk:
-https://github.com/NeuroDesk/neurodesk/blob/master/master/neurodesk/apps.json
+https://github.com/NeuroDesk/neurodesk/blob/master/neurodesk/apps.json
 ```
-curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/master/neurodesk/apps.json
+curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/neurodesk/apps.json
 ```
 
 ## How to use applications from the command line
@@ -101,7 +101,7 @@ curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/master/neur
 2. Examine the list of downloaded packages that shows up in the terminal window
 3. Use the 'module' command, giving the desired downloaded package as an argument, e.g.
 ```
-module load fsl_6.0.1
+module load fsl_6.0.3
 ```
 4. Call the programs/scripts included in the package as you would do if it was installed on your desktop, e.g.
 ```
