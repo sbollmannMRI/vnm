@@ -30,7 +30,7 @@
     "bidstools": {
         "apps": {
             "bidstools 1.0.0": {
-                "version": "20201120",
+                "version": "20201208",
                 "exec": ""
             }
         }
@@ -55,6 +55,22 @@
         "apps": {
             "datalad 0.13.3": {
                 "version": "20201119",
+                "exec": ""
+            }
+        }
+    },
+    "dsistudio": {
+        "apps": {
+            "dsistudio 2020.10": {
+                "version": "20201125",
+                "exec": ""
+            }
+        }
+    },
+    "fatsegnet": {
+        "apps": {
+            "fatsegnet 1.0.gpu": {
+                "version": "20201212",
                 "exec": ""
             }
         }
@@ -96,6 +112,14 @@
             "fsleyes-fsl 6.0.4": {
                 "version": "20201029",
                 "exec": "fsleyes"
+            }
+        }
+    },
+    "gimp": {
+        "apps": {
+            "gimp-gimp 2.10.18": {
+                "version": "20201123",
+                "exec": "gimp"
             }
         }
     },
@@ -143,6 +167,14 @@
             },
             "mrview-mrtrix3 3.0.1": {
                 "version": "20200908",
+                "exec": "mrview"
+            },
+            "mrtrix3 3.0.2": {
+                "version": "20201125",
+                "exec": ""
+            },
+            "mrview-mrtrix3 3.0.2": {
+                "version": "20201125",
                 "exec": "mrview"
             }
         }
