@@ -57,6 +57,7 @@ RUN apt-get update \
         lua5.2 \
         lmod \
         git \
+        aria2 \
         code \
         emacs \
         htop \
