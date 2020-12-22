@@ -5,8 +5,8 @@ on:
     branches: [ master ]
     paths:
       - .github/workflows/docker-image.yml
-      - Dockerfile_VNM
-      - Dockerfile_Neurodesk_base
+      - vnm_base/Dockerfile
+      - neurodesk_base/Dockerfile
       - config/*
       - neurodesk/*
   check_run:
@@ -16,8 +16,8 @@ on:
   pull_request:
     paths:
       - .github/workflows/docker-image.yml
-      - Dockerfile_VNM
-      - Dockerfile_Neurodesk_base
+      - vnm_base/Dockerfile
+      - neurodesk_base/Dockerfile
       - config/*
       - neurodesk/*
     
@@ -33,7 +33,7 @@ jobs:
       run: |
         echo ${GITHUB_REF}
         echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u $GITHUB_ACTOR --password-stdin
-        IMAGEID=docker.pkg.github.com/$GITHUB_REPOSITORY/vnm
+        IMAGEID=docker.pkg.github.com/$GITHUB_REPOSITORY/vnm_base
         IMAGEID=$(echo $IMAGEID | tr '[A-Z]' '[a-z]')
         {
           docker pull $IMAGEID \
@@ -44,7 +44,7 @@ jobs:
     - name: Build new VNM image
       run: |
         SHORT_SHA=$(git rev-parse --short $GITHUB_SHA)
-        docker build . --file Dockerfile_VNM --tag $IMAGEID:$SHORT_SHA --cache-from $IMAGEID --label "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" --label "GITHUB_SHA=$GITHUB_SHA"
+        docker build . --file vnm_base/Dockerfile --tag $IMAGEID:$SHORT_SHA --cache-from $IMAGEID --label "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" --label "GITHUB_SHA=$GITHUB_SHA"
         ROOTFS_NEW=$(docker inspect --format='{{.RootFS}}' $IMAGEID:$SHORT_SHA)
         BUILDDATE=`date +%Y%m%d`
         echo "SHORT_SHA=$SHORT_SHA" >> $GITHUB_ENV
@@ -63,10 +63,10 @@ jobs:
       run: |
         echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
         # Push to GH Packages
-        docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/vnm:$BUILDDATE
-        docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/vnm:latest
-        docker push $DOCKERHUB_ORG/vnm:latest
-        docker push $DOCKERHUB_ORG/vnm:$BUILDDATE
+        docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/vnm_base:$BUILDDATE
+        docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/vnm_base:latest
+        docker push $DOCKERHUB_ORG/vnm_base:latest
+        docker push $DOCKERHUB_ORG/vnm_base:$BUILDDATE
     - name: Pull latest Neurodesk base build from Github Packages
       run: |
         echo ${GITHUB_REF}
@@ -82,7 +82,7 @@ jobs:
     - name: Build neurodesk base image
       run: |
         SHORT_SHA=$(git rev-parse --short $GITHUB_SHA)
-        docker build . --file Dockerfile_Neurodesk_base --tag $IMAGEID:$SHORT_SHA --cache-from $IMAGEID --label "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" --label "GITHUB_SHA=$GITHUB_SHA"
+        docker build . --file neurodesk_base/Dockerfile --tag $IMAGEID:$SHORT_SHA --cache-from $IMAGEID --label "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" --label "GITHUB_SHA=$GITHUB_SHA"
         ROOTFS_NEW=$(docker inspect --format='{{.RootFS}}' $IMAGEID:$SHORT_SHA)
         BUILDDATE=`date +%Y%m%d`
         echo "SHORT_SHA=$SHORT_SHA" >> $GITHUB_ENV

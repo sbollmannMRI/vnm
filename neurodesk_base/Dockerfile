@@ -30,12 +30,10 @@ FROM ubuntu:20.04
 # Install singularity into the final image.
 COPY --from=builder /usr/local/singularity /usr/local/singularity
 
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Install packages with --no-install-recommends to keep things slim
 # 1) singularity's and lmod's runtime dependencies.
-# 2) various tools
-# 3) julia
-# 4) nextcloud-client
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         squashfs-tools \
@@ -50,7 +48,6 @@ RUN apt-get update \
         git \
         aria2 \
         htop \
-        imagemagick \
         less \
         nano \
         openssh-client \
