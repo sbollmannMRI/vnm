@@ -47,15 +47,11 @@ RUN apt-get update \
         lmod \
         git \
         aria2 \
-        htop \
         less \
         nano \
         openssh-client \
-        rsync \
-        tree \
         vim \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm /etc/apt/sources.list.d/vs-code.list
+    && rm -rf /var/lib/apt/lists/*
 
 # add module script
 COPY ./config/module.sh /usr/share/
