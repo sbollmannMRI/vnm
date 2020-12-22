@@ -79,7 +79,7 @@ jobs:
             && echo "ROOTFS_CACHE=$ROOTFS_CACHE" >> $GITHUB_ENV
         } || echo "$IMAGEID not found. Resuming build..."
         echo "IMAGEID=$IMAGEID" >> $GITHUB_ENV
-     - name: Build neurodesk base image
+    - name: Build neurodesk base image
       run: |
         SHORT_SHA=$(git rev-parse --short $GITHUB_SHA)
         docker build . --file Dockerfile_Neurodesk_base --tag $IMAGEID:$SHORT_SHA --cache-from $IMAGEID --label "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" --label "GITHUB_SHA=$GITHUB_SHA"
