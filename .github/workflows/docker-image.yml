@@ -67,7 +67,7 @@ jobs:
         docker tag $IMAGEID:$SHORT_SHA $DOCKERHUB_ORG/vnm:latest
         docker push $DOCKERHUB_ORG/vnm:latest
         docker push $DOCKERHUB_ORG/vnm:$BUILDDATE
-     - name: Pull latest Neurodesk base build from Github Packages
+    - name: Pull latest Neurodesk base build from Github Packages
       run: |
         echo ${GITHUB_REF}
         echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u $GITHUB_ACTOR --password-stdin
