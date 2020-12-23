@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: vnm_base Image CI
 
 on:
   push:
