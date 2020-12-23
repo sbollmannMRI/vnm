@@ -58,6 +58,9 @@ RUN apt-get update \
 # add module script
 COPY ./config/module.sh /usr/share/
 
+#make python3 default python
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 # setup module system & singularity
 COPY ./config/.bashrc /etc/skel/.bashrc
 
