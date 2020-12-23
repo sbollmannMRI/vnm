@@ -47,7 +47,8 @@ RUN apt-get update \
         lmod \
         git \
         aria2 \
-        python3 \
+        python3-dev \
+        python3-pip \
         less \
         nano \
         openssh-client \
