@@ -1,5 +1,5 @@
 ARG GO_VERSION="1.14.4"
-ARG SINGULARITY_VERSION="3.5.3"
+ARG SINGULARITY_VERSION="3.7.0"
 
 # Build Singularity.
 FROM golang:${GO_VERSION}-buster as builder
