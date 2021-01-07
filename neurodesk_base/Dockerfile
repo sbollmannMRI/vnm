@@ -17,7 +17,7 @@ RUN apt-get update \
 RUN curl -fsSL "https://github.com/hpcng/singularity/releases/download/v${SINGULARITY_VERSION}/singularity-${SINGULARITY_VERSION}.tar.gz" \
     | tar -xz \
     && cd singularity \
-    && ./mconfig -p /usr/local/singularity \
+    && ./mconfig -p /usr/local/singularity --without-suid \
     && cd builddir \
     && make \
     && make install
