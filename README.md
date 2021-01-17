@@ -69,13 +69,17 @@ add the following parameter to the docker call:
 open in VNC viewer:  http://localhost:5900
 ```
 
+## Run Neurodesk VNM for free on cloud providers:
+* Oracle OCI: https://mri.sbollmann.net/index.php/2020/12/08/run-neurodesk-on-oracle-cloud-free-tier/
+* Microsoft Azure: https://henryjburg.medium.com/neurodesk-running-on-azure-3e38c590a152 
+
 ## List of available software in the Desktop (no need to download! already included in main container)
 * Git 2.25.1 (version control)
 * Lmod 6.6 (for handling different versions of software)
 * Nipype 1.5.0 (workflow system for neuro-imaging)
 * Python 3.8.2 (programming language)
 * Rsync 3.1.3 (synchronization of data)
-* Singularity 3.5.3 (container runtime)
+* Singularity 3.7.0 (container runtime)
 * Visual Studio Code 1.46.1 (code editor and development environment)
 
 ## This gives you a list of available images:
