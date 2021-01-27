@@ -2,12 +2,14 @@
 
 A compact Docker container with a browser-accessible environment for reproducible neuroimaging analysis. Only the required software packages, already pre-installed, are downloaded from a public library (downloaded as containers).
 
-Please complete the survey to help guide future additions to the software library: https://forms.gle/deKy85yniJLP4hDM8
+You're welcome to complete the survey to help guide future additions to the software library: https://forms.gle/deKy85yniJLP4hDM8
+
+For inquiries, please open a new issue, or contact Steffen Bollmann (https://github.com/stebo85) or Oren Civier (https://github.com/civier) or Aswin Narayanan (https://github.com/aswinnarayanan).
 
 ![Screenshot](Screenshot.png)
 
 ## Quickstart
-1. Install Docker from here: https://docs.docker.com/get-docker/ (Mac, Windows, Linux; for HPC/supercomputer: https://github.com/NeuroDesk/transparent-singularity)
+1. Install Docker from here: https://docs.docker.com/get-docker/ (Mac, Windows, Linux; for HPC/supercomputer: https://github.com/NeuroDesk/neurodesk)
 
 2. Create a local folder where the downloaded software packages will be stored, e.g. ~/vnm in Mac and Linux, or C:\vnm in Windows 
 
@@ -15,15 +17,15 @@ Please complete the survey to help guide future additions to the software librar
 
 * Mac:
 ```
-docker run --privileged --name vnm -v ~/vnm:/vnm -e USER=neuro -p 6080:80 -p 5900:5900 vnmd/vnm:20200903
+docker run --privileged --name vnm -v ~/vnm:/vnm -e USER=neuro -p 6080:80 -p 5900:5900 vnmd/vnm:20210113
 ```
 * Windows:
 ```
-docker run --privileged --name vnm -v C:/vnm:/vnm -e USER=neuro -p 6080:80 -p 5900:5900 vnmd/vnm:20200903
+docker run --privileged --name vnm -v C:/vnm:/vnm -e USER=neuro -p 6080:80 -p 5900:5900 vnmd/vnm:20210113
 ```
 * Linux:
 ```
-sudo docker run --privileged --name vnm -v ~/vnm:/vnm -v /dev/shm:/dev/shm -e USER=neuro -p 6080:80 -p 5900:5900 vnmd/vnm:20200903
+sudo docker run --privileged --name vnm -v ~/vnm:/vnm -v /dev/shm:/dev/shm -e USER=neuro -p 6080:80 -p 5900:5900 vnmd/vnm:20210113
 ```
 
 4. Once VNM is downloaded i.e. "INFO success: novnc entered RUNNING state" is displayed in terminal, open a browser and go to:
@@ -41,9 +43,9 @@ Click on the Launcher icon in bottom-left corner and navigate to the "VNM Neuroi
 
 Alternatively one can download an application from the command line, e.g.:
 ```
-bash /neurodesk/menus/fetch_and_run.sh fsl 6.0.1 20200702
+bash /neurodesk/local/fetch_and_run.sh fsl 6.0.3 20200905
 ```
-(Notice: last argument is to be taken from https://github.com/NeuroDesk/neurodesk/blob/master/menus/apps.json)
+(Notice: last argument is to be taken from https://github.com/NeuroDesk/neurodesk/blob/master/neurodesk/apps.json)
 
 
 ## Stopping VNM:
@@ -67,19 +69,17 @@ add the following parameter to the docker call:
 open in VNC viewer:  http://localhost:5900
 ```
 
+## Run Neurodesk VNM for free on cloud providers:
+* Oracle OCI: https://mri.sbollmann.net/index.php/2020/12/08/run-neurodesk-on-oracle-cloud-free-tier/
+* Microsoft Azure: https://henryjburg.medium.com/neurodesk-running-on-azure-3e38c590a152 
+
 ## List of available software in the Desktop (no need to download! already included in main container)
-* Datalad 0.13.0 (great interface for version control of data using git-annex)
-* Fish Shell 3.1.0 (shell with autocomplete)
 * Git 2.25.1 (version control)
-* Git-Annex 8.20200226 (version control of data)
-* GNU Image Manipulation Program 2.10.18 (Bitmap editing program)
-* Julia 1.4.1 (programming language)
 * Lmod 6.6 (for handling different versions of software)
 * Nipype 1.5.0 (workflow system for neuro-imaging)
 * Python 3.8.2 (programming language)
-* Rclone v1.50.2 (rsync for cloud storage providers)
 * Rsync 3.1.3 (synchronization of data)
-* Singularity 3.5.3 (container runtime)
+* Singularity 3.7.0 (container runtime)
 * Visual Studio Code 1.46.1 (code editor and development environment)
 
 ## This gives you a list of available images:
@@ -89,9 +89,9 @@ curl -s https://github.com/Neurodesk/caid/packages | sed -n "s/^.*\/NeuroDesk\/c
 ```
 
 ## This gives you a list of all tested images available in neurodesk:
-https://github.com/NeuroDesk/neurodesk/blob/master/menus/apps.json
+https://github.com/NeuroDesk/neurodesk/blob/master/neurodesk/apps.json
 ```
-curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/menus/apps.json
+curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/neurodesk/apps.json
 ```
 
 ## How to use applications from the command line
@@ -99,7 +99,7 @@ curl -s https://raw.githubusercontent.com/NeuroDesk/neurodesk/master/menus/apps.
 2. Examine the list of downloaded packages that shows up in the terminal window
 3. Use the 'module' command, giving the desired downloaded package as an argument, e.g.
 ```
-module load fsl_6.0.1
+module load fsl_6.0.3
 ```
 4. Call the programs/scripts included in the package as you would do if it was installed on your desktop, e.g.
 ```
@@ -110,6 +110,7 @@ fsleyes
 * window tiling is set to: SHIFT-ALT-CTRL-{left,right,up,down}
 
 ## Acknowledgments
-![nif](nif.png)
-
-![logo-long-full](logo-long-full.svg)
+<img src="https://github.com/NeuroDesk/vnm/blob/master/nif.png" width="250">
+<img src="https://github.com/NeuroDesk/vnm/blob/master/uq_logo.png" width="250">
+<img src="https://github.com/NeuroDesk/vnm/blob/master/logo-long-full.svg" width="250">
+<img src="https://www.gigacrc.uliege.be/upload/docs/image/svg-xml/2018-10/_uliege_giga_crc.svg" width="250">

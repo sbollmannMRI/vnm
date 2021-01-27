@@ -1,0 +1,246 @@
+{
+    "afni": {
+        "apps": {
+            "afni 20.3.00": {
+                "version": "20201011",
+                "exec": ""
+            },
+            "sumaGUI-afni 20.3.00": {
+                "version": "20201011",
+                "exec": "suma"
+            }
+        }
+    },
+    "ants": {
+        "apps": {
+            "ants 2.3.4": {
+                "version": "20200811",
+                "exec": ""
+            }
+        }
+    },
+    "ashs": {
+        "apps": {
+            "ashs 2.0.0": {
+                "version": "20200905",
+                "exec": ""
+            }
+        }
+    },
+    "bidstools": {
+        "apps": {
+            "bidstools 1.0.0": {
+                "version": "20201208",
+                "exec": ""
+            }
+        }
+    },
+    "connectomeworkbench": {
+        "apps": {
+            "connectomeworkbench 1.4.2": {
+                "version": "20201119",
+                "exec": ""
+            }
+        }
+    },
+    "convert3d": {
+        "apps": {
+            "convert3d 1.0.0": {
+                "version": "20200811",
+                "exec": ""
+            }
+        }
+    },
+    "datalad": {
+        "apps": {
+            "datalad 0.13.3": {
+                "version": "20201119",
+                "exec": ""
+            }
+        }
+    },
+    "dsistudio": {
+        "apps": {
+            "dsistudio 2020.10": {
+                "version": "20201125",
+                "exec": ""
+            }
+        }
+    },
+    "fatsegnet": {
+        "apps": {
+            "fatsegnet 1.0.gpu": {
+                "version": "20201212",
+                "exec": ""
+            }
+        }
+    },
+    "fmriprep": {
+        "apps": {
+            "fmriprep 20.1.3": {
+                "version": "20201118",
+                "exec": ""
+            }
+        }
+    },
+    "freesurfer": {
+        "apps": {
+            "freesurfer 7.1.1": {
+                "version": "20200924",
+                "exec": ""
+            },
+            "freeviewGUI-freesurfer 7.1.1": {
+                "version": "20200924",
+                "exec": "freeview"
+            }
+        }
+    },
+    "fsl": {
+        "apps": {
+            "fsl 6.0.3": {
+                "version": "20200905",
+                "exec": ""
+            },
+            "fsleyesGUI-fsl 6.0.3": {
+                "version": "20200905",
+                "exec": "fsleyes"
+            },
+            "fsl 6.0.4": {
+                "version": "20201029",
+                "exec": ""
+            },
+            "fsleyesGUI-fsl 6.0.4": {
+                "version": "20201029",
+                "exec": "fsleyes"
+            }
+        }
+    },
+    "gimp": {
+        "apps": {
+            "gimpGUI-gimp 2.10.18": {
+                "version": "20201123",
+                "exec": "gimp"
+            },
+            "gimp 2.10.18": {
+                "version": "20201123",
+                "exec": ""
+            }
+        }
+    },
+    "itksnap": {
+        "apps": {
+            "itksnapGUI-itksnap 3.8.0": {
+                "version": "20200811",
+                "exec": "itksnap /MRIcrop-orig.gipl"
+            },
+            "itksnap 3.8.0": {
+                "version": "20200811",
+                "exec": ""
+            }
+        }
+    },
+    "julia": {
+        "apps": {
+            "julia 1.4.1": {
+                "version": "20201108",
+                "exec": ""
+            }
+        }
+    },
+    "minc": {
+        "apps": {
+            "minc 1.9.17": {
+                "version": "20200811",
+                "exec": ""
+            },
+            "registerGUI-minc 1.9.17": {
+                "version": "20200811",
+                "exec": "register"
+            }
+        }
+    },
+    "mriqc": {
+        "apps": {
+            "mriqc 0.15.2": {
+                "version": "20201104",
+                "exec": ""
+            }
+        }
+    },
+    "mrtrix3": {
+        "apps": {
+            "mrtrix3 3.0.1": {
+                "version": "20200908",
+                "exec": ""
+            },
+            "mrviewGUI-mrtrix3 3.0.1": {
+                "version": "20200908",
+                "exec": "mrview"
+            },
+            "mrtrix3 3.0.2": {
+                "version": "20201125",
+                "exec": ""
+            },
+            "mrviewGUI-mrtrix3 3.0.2": {
+                "version": "20201125",
+                "exec": "mrview"
+            }
+        }
+    },
+    "mrtrix3tissue": {
+        "apps": {
+            "mrtrix3tissue 5.2.8": {
+                "version": "20201111",
+                "exec": ""
+            }
+        }
+    },
+    "root": {
+        "apps": {
+            "root 6.22.02": {
+                "version": "20201104",
+                "exec": ""
+            }
+        }
+    },
+    "slicer": {
+        "apps": {
+            "slicer 4.11.20200930": {
+                "version": "20201108",
+                "exec": ""
+            },
+            "3DSlicerGUI-slicer 4.11.20200930": {
+                "version": "20201108",
+                "exec": "Slicer"
+            }
+        }
+    },
+    "spinalcordtoolbox": {
+        "apps": {
+            "spinalcordtoolbox 4.3": {
+                "version": "20201108",
+                "exec": ""
+            }
+        }
+    },
+    "spm12": {
+        "apps": {
+            "spm12GUI-spm12 r7219": {
+                "version": "20201120",
+                "exec": "run_spm12.sh /opt/matlabmcr-2010a/"
+            },
+            "spm12 r7219": {
+                "version": "20201120",
+                "exec": ""
+            }
+        }
+    },
+    "tgvqsm": {
+        "apps": {
+            "tgvqsm 1.0.0": {
+                "version": "20200929",
+                "exec": ""
+            }
+        }
+    }
+}
